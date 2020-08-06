@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Page Header Start -->
+    <div class="page-header">      
+      <div class="container"> 
+        <div class="page-header-inner">         
+          <ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">
+            <li><a href="{% url 'index' %}">Головна</a></li>
+            <li class="page">Галерея</li>
+          </ol>
+          <h1 class="page-title wow fadeInRight" data-wow-delay="300ms">
+            Галерея
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End-->
+
+    <!-- Gallery Section Start -->
+    <section id="gallery" class="section">
+      <div class="container">        
+        <div class="col-md-12">
+          <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Наші галереї</h2>
+        </div>  
+        <div class="gallery-wrap wow fadeInDown">
+          {% for gallery in galleries %}
+          <div class="col-md-4 col-sm-4 col-xs-12 gellery-pn">
+            <div class="gallery-item">
+              <a href="#"><img src="{{ gallery.title_image_avatar.url }}" alt=""></a>
+              <div class="overlay">
+                <div class="icons">
+                  <a class="preview lightbox"
+                     href="{{ gallery.title_image_big.url }}"><i class="icon-eye"></i></a>
+                  <a class="link"
+                     href="{% url 'gallery_detail' gallery.id %}"><i class="icon-link"></i></a>
+                </div>
+              </div>
+              <h4>{{ gallery.title }}</h4>
+            </div>
+          </div>
+            {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- Gallery Section End -->
+
+    <!-- Intro Section Start -->
+    <section id="intro" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-8 col-xs-12">
+            <div class="content-text">
+              <h2>ARE YOU READY TO MANAGE YOUR OWN EVENTS?</h2>
+              <p class="text">All of our virtual professionals are highly experienced in the areas in which they work and have been through a thorough recruitment process.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 text-right">
+            <a href="#" class="btn-cta btn btn-common"><i class="icon-control-play"></i> Sign Up Today</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Intro Section End -->
+
+    <!-- Footer Section Start -->   
+    <footer class="section">  
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3><img src="assets/img/footer-logo.png" alt=""></h3>
+            <p>
+              If you think you have the passion, 
+              attitude and capability to join us 
+              the next big software company
+              s so that we can get the convers.
+            </p>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Docs</a></li>
+              <li><a href="#">Contact Us</a></li>               
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Learn More</h3>
+            <ul>
+              <li><a href="#">How it Works</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Log In</a></li>
+              <li><a href="#">Sign Up</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Quick Link</h3>
+            <ul>
+              <li><a href="#">Schedule</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Pricing</a></li>
+            </ul>
+          </div>          
+        </div>
+      </div>      
+    </footer>  
+    <!-- Footer Section End -->
+
+  {% endblock content %}
+

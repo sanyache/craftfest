@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Фестиваль крафтових виробів | Приютівська ОТГ</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css' %}" >
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'assets/fonts/simple-line-icons.css' %}">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/slicknav.css' %}">
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/nivo-lightbox.css' %}" >
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.css' %}">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/owl.carousel.css' %}">
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/colors/default.css' %}"
+          media="screen" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+      <!-- Roof area Starts -->
+      <div id="roof" class="hidden-xs">
+          <div class="container">
+            <div class="col-md-6 col-sm-6">
+              <div class="info-bar-address">
+                 <i class="icon-location-pin"></i> с. Войнівка Приютівська ОТГ
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <!-- Quick Contacts Starts -->
+              <div class="quick-contacts">
+                  <span><i class="icon-phone"></i> (00) 123 456 789</span>
+                  <span><i class="icon-envelope"></i><a href="#">kraftfest@ukr.net</a></span>
+              </div>
+              <!-- Quick Contacts End -->
+            </div>
+          </div>
+      </div>
+      <!-- Roof area End -->
+
+      <!-- Nav Menu Section Start -->
+      <div class="navigation-menu">
+        <nav class="navbar navbar-default navbar-event" >
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header col-md-2">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand"
+                 href="index.html"><img src="{% static 'assets/img/logo1.png' %}"
+                                        style="width: 100px; height: 100px;"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="index.html">Головна</a></li>
+                <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Pages <span class="caret"></span></a>-->
+                   <!--<ul class="dropdown-menu">-->
+                    <!--<li><a href="about.html">Про нас</a></li>-->
+                    <!--<li><a href="gallery.html">Галерея</a></li>-->
+                    <!--<li><a href="pricing.html">Pricing Table</a></li>-->
+                    <!--<li><a href="sponsors.html">Sponsors</a></li>-->
+                    <!--<li><a href="single-post.html"></a></li>-->
+                  <!--</ul>-->
+                <!--</li>                -->
+                <li><a href="schedule.html">Про нас</a></li>
+                <li><a href="#">Галерея</a></li>
+                <li><a href="{% url 'master_list' %}">Майстри</a></li>
+                <li><a href="blog.html">Статті</a></li>
+                <li><a href="contact.html">Контакти</a></li>
+              </ul>
+            </div><!-- /navbar-collapse -->
+          </div><!-- /container -->
+
+          <!-- Mobile Menu Start -->
+          <ul class="wpb-mobile-menu">
+            <li class="active"><a href="index.html">Головна</a></li>
+            <!--<li><a href="#">Pages</a>-->
+               <!--<ul class="dropdown">-->
+                <!--<li><a href="about.html">Про нас</a></li>-->
+                <!--<li><a href="gallery.html">Gallery</a></li>-->
+                <!--<li><a href="pricing.html">Pricing Table</a></li>-->
+                <!--<li><a href="sponsors.html">Sponsors</a></li>-->
+                <!--<li><a href="single-post.html">Single Post</a></li>-->
+              <!--</ul>-->
+            <!--</li>                -->
+            <li><a href="schedule.html">Про нас</a></li>
+            <li><a href="speakers.html">Майстри</a></li>
+            <li><a href="blog.html">Статті</a></li>
+            <li><a href="pricing.html">Галерея</a></li>
+            <li><a href="contact.html">Контакти</a></li>
+           </ul>
+          <!-- Mobile Menu End -->
+
+        </nav>
+      </div>
+      <!-- Nav Menu Section End -->
+
+    </header>
+    <!-- Header Area wrapper End -->
+    {% block content %}{% endblock content %}
+    <!-- Copytight Start -->
+    <section id="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="copyright-text text-center">
+             ©Designed and Developed by
+              <a href="http://graygrids.com/">
+                GrayGrids
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Copytight End -->
+
+    <!-- Go to Top Link -->
+    <a href="#" class="back-to-top">
+        <i class="icon-arrow-up"></i>
+    </a>
+<!-- jQuery Load -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <!-- Countdown Js -->
+    <script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script>
+    <!-- Smooth scroll JS -->
+    <script src="{% static 'assets/js/smooth-scroll.js' %}"></script>
+    <!-- Wow Scroll -->
+    <script src="{% static 'assets/js/wow.js' %}"></script>
+    <!-- Owl carousel -->
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <!-- Slicknav js -->
+    <script src="{% static 'assets/js/jquery.slicknav.js' %}"></script>
+    <!--  Nivo lightbox Js -->
+    <script src="{% static 'assets/js/nivo-lightbox.js' %}"></script>
+    <!-- Contact Form Scripts -->
+    <script src="{% static 'assets/js/form-validator.min.js' %}"></script>
+    <script src="{% static 'assets/js/contact-form-script.js' %}"></script>
+
+    <!-- All Js plugin -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <!-- Map JS -->
+    <script type="text/javascript" src="{% static 'assets/js/jquery.mapit.min.js' %}"></script>
+    <script src="{% static 'assets/js/initializers.js' %}"></script>
+
+  </body>
+</html>

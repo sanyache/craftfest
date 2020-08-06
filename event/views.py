@@ -1,0 +1,74 @@
+from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from django.shortcuts import render, get_object_or_404
+from .models import *
+from .utils import paginate
+
+import random
+
+# Create your views here.
+
+
+def index(request):
+
+    sliders = Slider.objects.all()
+    schedule = Schedule.objects.all().order_by('time')
+    schedule_paginate = paginate(schedule, 4, request, {}, var_name='schedule')
+    gallery = Gallery.objects.filter(is_title=True).latest('created')
+    gallery_list = list(gallery.photos.all())[:12]
+    random.shuffle(gallery_list)
+    return render(request, 'index.html', {'sliders': sliders,
+                                          'schedule': schedule_paginate,
+                                          'gallery_list': gallery_list})
+
+
+class GalleryList(ListView):
+    """
+    view for rendering gallery list
+    """
+    model = Gallery
+    queryset = Gallery.objects.exclude(category='product')
+    context_object_name = 'galleries'
+    template_name = 'gallery.html'
+
+
+def image_gallery(request, pk):
+    """
+    view for rendering photo gallery
+    """
+    gallery = get_object_or_404(Gallery, id=pk)
+    photos = ImageGallery.objects.filter(gallery=gallery)
+    context = paginate(photos, 12, request, {}, var_name='photos')
+    context['gallery'] = gallery
+    return render(request, 'gallery_detail.html', context)
+
+
+class MasterList(ListView):
+    """
+    view for rendering masters
+    """
+    model = Master
+    context_object_name = 'masters'
+    template_name = 'masters.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(MasterList, self).get_context_data(object_list=None, **kwargs)
+        categories = CategoryProduct.objects.all()
+        context['categories'] = categories
+        return context
+
+
+class MasterDetail(DetailView):
+    """
+    class for rendering details about master
+    """
+    model = Master
+    template_name = 'master-detail.html'
+    context_object_name = 'master'
+
+    def get_context_data(self, **kwargs):
+        context = super(MasterDetail, self).get_context_data(**kwargs)
+        # if self.object.gallery:
+        #     photos =
+        print('req', self.kwargs['pk'], self.object.gallery)
+        return context

@@ -1,0 +1,648 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Main Slider Section Start -->
+    <div id="carousel-area">
+      <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+        
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          {% for slider in sliders %}
+          {% if forloop.counter == 1 %}
+            <div class="item active">
+            {% else %}
+            <div class="item">
+            {% endif %}
+            <img src="{{ slider.slider_image.url }}" alt="">
+            <div class="carousel-caption">
+              <h2 class="wow fadeInRight" data-wow-delay="300ms">{{ slider.title }} </h2>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-slider" role="button" data-slide="prev">
+          <span class="icon-arrow-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-slider" role="button" data-slide="next">
+          <span class="icon-arrow-right" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+    <!-- Main Slider Section End -->
+
+    <!-- Coundown Section Start -->
+    <section class="countdown-timer section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.2s">
+            <div class="text">
+              <h2>Фестиваль <br>Крафтових виробів</h2>
+              <h4>с. Войнівка Приютівська ОТГ <br> До старту нового фесту залишилося ...</h4>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInRight" data-wow-delay="0.2s">
+            <div class="time-countdown">
+              <div id="clock" class="time-count"></div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Coundown Section End -->
+
+    <!-- Welocme Event Start -->
+    <section id="event" class="section">
+      <img src="{% static 'assets/img/background/bg-1.jpg' %}">
+
+    </section>
+    <!-- Welocme Event End -->
+
+    <!-- Featured Section Start -->
+    <section id="featured" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Чому варто приєднатися
+              до нас?</h2>
+              <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Завітавши на наш
+                фестиваль ви зможете чудово провести час всією родиною,<br>
+                зможете придбати крафтові вироби, скуштувати кухню, насолодитися концертом
+              </p>
+              <div class="col-md-4 col-sm-6">
+                <div class="featured-box wow fadeInLeft" data-wow-delay="0.1s">
+                  <div class="icon">
+                    <i class="icon-energy"></i>
+                  </div>
+                  <div class="featured-content">
+                    <h4>Надихнутися новими ідеями</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor.  Aenean massa.  Cum sociis natoque </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="featured-box wow fadeInLeft" data-wow-delay="0.2s">
+                  <div class="icon">
+                    <i class="icon-people"></i>
+                  </div>
+                  <div class="featured-content">
+                    <h4>Зустріти однодумців</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor.  Aenean massa.  Cum sociis natoque </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="featured-box wow fadeInLeft" data-wow-delay="0.3s">
+                  <div class="icon">
+                    <i class="icon-graph"></i>
+                  </div>
+                  <div class="featured-content">
+                    <h4>Пізнати нові технології</h4>
+                    <p>Проведення майстеркласів від кращих фахівців своєї справи</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-6">
+                <div class="featured-box wow fadeInLeft" data-wow-delay="0.3s">
+                  <div class="icon">
+                    <i class="icon-microphone"></i>
+                  </div>
+                  <div class="featured-content">
+                    <h4>Чудовий концерт</h4>
+                    <p>Зможете насолодитися чудовим концертом від аматорських колективів та
+                      запрошених професійних артистів</p>
+                  </div>
+                </div>
+              </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="featured-box wow fadeInLeft" data-wow-delay="0.3s">
+                  <div class="icon">
+                    <i class="icon-basket-loaded"></i>
+                  </div>
+                  <div class="featured-content">
+                    <h4>Придбати крафтові вироби</h4>
+                    <p>Ви зможете придбати унікальні речі від кращих майстрів своєї справи</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="featured-box wow fadeInLeft" data-wow-delay="0.3s">
+                  <div class="icon">
+                    <i class="icon-present"></i>
+                  </div>
+                  <div class="featured-content">
+                    <h4>Отримати подарунки</h4>
+                    <p>Отримати подарунки за участь в конкурсах</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- Featured Section End -->
+
+    <!-- Schedule Section Start -->
+    <section id="schedule" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+              <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Програма</h2>
+              <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">заходів
+                ярмару крафтових виробів.</p>
+              <!-- Schedule Main board Start-->
+              <div class="main-board wow fadeInDown pages" data-wow-delay="0.3s">
+                <!-- Nav tabs -->
+
+                <!-- Tab content Start -->
+                <div class="tab-content items">
+                  <!-- Day 1 Start -->
+                  {% for act in schedule.page_obj %}
+                  {% if forloop.counter == 1 %}
+                    <div role="tabpanel"
+                         class="tab-pane active"
+                         id="day{{ forloop.counter0|add:schedule.page_obj.start_index }}">
+                    {% else %}
+                    <div role="tabpanel"
+                         class="tab-pane"
+                         id="day{{ forloop.counter0|add:schedule.page_obj.start_index }}">
+                    {% endif %}
+                    <div class="row">
+                      <div class="col-md-12 board text-center">
+                        <div class="column-1 col-md-3 col-sm-5">
+                          <ul class="nav nav-pills event-time-list">
+                            <li><h2>Час</h2>
+                              {% if schedule.page_obj.has_previous %}
+                              <a
+                                 class="previous"
+                                 href="?page={{ schedule.page_obj.previous_page_number }}">
+                                <div class="icon">
+                                  <i class="icon-arrow-up" style="font-size: 81px;"></i>
+                                </div>
+                              </a>
+                              {% endif %}
+                              <ul class="schedule" id="time" data-page="{{ schedule.page_obj.number }}"
+                                data-pages="{{schedule.num_pages}}">
+                                {% for t in schedule.page_obj %}
+                                <li class="color-{{ forloop.counter }}">
+                                  <a
+                                     href="day{{ forloop.counter0|add:schedule.page_obj.start_index }}">
+                                    {{ t.time }}<br>{{ t.short_description }}
+                                  </a></li>
+                                {% endfor %}
+                              </ul>
+                              {% if schedule.page_obj.has_next %}
+                              <a
+                                class="next"
+                                href="?page={{ schedule.page_obj.next_page_number }}">
+                                <div class="icon">
+                                  <i class="icon-arrow-down" style="font-size: 81px;"></i>
+                                </div>
+                              </a>
+                              {% endif %}
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-md-8 col-sm-6">
+                          <div class="member stephen" >
+                          <div class="button">
+                            <a href="#" class="btn-large bg-{{ forloop.counter }}">
+                              <img src="{% static 'assets/img/microphone.png' %}">
+                              {{act.short_description }}
+                            </a>
+                          </div>                             
+                            <h4>{{ act.description }}</h4>
+                          </div>
+                        </div>
+                      </div>                     
+                    </div>
+                  </div>
+                    <!-- Day 1 End -->
+                  {% endfor %}
+                  <!-- Day 2 Start -->
+
+                </div>
+                <!-- Tab content Start -->
+              </div>
+              <!-- Schedule Main board End-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Schedule Section End -->
+
+    <!-- Sponsors Section Start -->
+    <section id="sponsors" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Наші спонсори</h2>
+            <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. A <br> enean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
+              <a href="#"><img src="assets/img/sponsors/logo-01.png" alt=""></a>
+            </div>            
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.2s">
+              <a href="#"><img src="assets/img/sponsors/logo-02.png" alt=""></a>
+            </div>            
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.3s">
+              <a href="#"><img src="assets/img/sponsors/logo-03.png" alt=""></a>
+            </div>            
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.4s">
+              <a href="#"><img src="assets/img/sponsors/logo-04.png" alt=""></a>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Sponsors Section End --> 
+
+    <!-- Gallery Section Start -->
+    <section id="gallery" class="section">
+      <div class="container">        
+        <div class="col-md-12">
+          <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Галерея</h2>
+          <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. A <br> enean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+        </div>  
+        <div class="gallery-wrap wow fadeInDown">
+            {% for img in gallery_list %}
+            <div class="gallery-item col-md-4 col-sm-4 col-xs-12">
+              <a href="{{ img.image_avatar.url }}"><img src="{{ img.image_avatar.url }}"></a>
+              <div class="overlay">
+                <div class="icons">
+                  <a class="preview lightbox"
+                     href="{{ img.image_big.url }}" data-lightbox-gallery="fest"><i class="icon-eye"></i></a>
+                  <a class="link" href="{% url 'gallery_list' %}"><i class="icon-link"></i></a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          <div class="more-btn">
+            <a href="{% url 'gallery_list' %}" class="btn btn-common wow fadeInUp"
+               data-wow-delay="0.3s">Дізнатися більше</a>
+          </div>    
+        </div>
+      </div>
+    </section>
+    <!-- Gallery Section End -->
+
+    <!-- Speakers Section Start -->
+    <section id="speakers" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Наші майстри</h2>
+            <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. A <br> enean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+          </div> 
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="speakers-member wow fadeIn" data-wow-delay="0.1s">
+              <div class="member-img">
+                <img src="{% static 'assets/img/teacher/img-1.png' %}"
+                     style="width: 245px; height:340px;">
+              </div>
+              <div class="member-desc">
+                <h3>Jon Doe</h3>
+                <h5>CEO, Peloton Cycle</h5>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.</p>
+                <div class="social-icon">
+                  <a class="social" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-behance"></i></a>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="speakers-member wow fadeIn" data-wow-delay="0.3s">
+              <div class="member-img">
+                <img src="{% static 'assets/img/teacher/img-2.png' %}" alt="">
+              </div>
+              <div class="member-desc">
+                <h3>Natali Aero</h3>
+                <h5>Co-founder, Hometeam</h5>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.</p>
+                <div class="social-icon">
+                  <a class="social" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-behance"></i></a>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="speakers-member wow fadeIn" data-wow-delay="0.5s">
+              <div class="member-img">
+                <img src="assets/img/teacher/img-3.png" alt="">
+              </div>
+              <div class="member-desc">
+                <h3>Leo Amber</h3>
+                <h5>Director, Via</h5>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.</p>
+                <div class="social-icon">
+                  <a class="social" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-behance"></i></a>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="speakers-member wow fadeIn" data-wow-delay="0.7s">
+              <div class="member-img">
+                <img src="assets/img/teacher/img-4.png" alt="">
+              </div>
+              <div class="member-desc">
+                <h3>Jeson Eva</h3>
+                <h5>Co-founder, theSkimm</h5>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.</p>
+                <div class="social-icon">
+                  <a class="social" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-behance"></i></a>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="speakers-member wow fadeIn" data-wow-delay="0.9s">
+              <div class="member-img">
+                <img src="assets/img/teacher/img-5.png" alt="">
+              </div>
+              <div class="member-desc">
+                <h3>Lamba Kureshi</h3>
+                <h5>Professor, Boston University</h5>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.</p>
+                <div class="social-icon">
+                  <a class="social" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-behance"></i></a>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="speakers-member wow fadeIn" data-wow-delay="1s">
+              <div class="member-img">
+                <img src="assets/img/teacher/img-6.png" alt="">
+              </div>
+              <div class="member-desc">
+                <h3>Leo Amber</h3>
+                <h5>CEO, lrisVR</h5>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.</p>
+                <div class="social-icon">
+                  <a class="social" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
+                  <a class="social" href="#" target="_blank"><i class="fa fa-behance"></i></a>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <div class="more-btn text-center">
+            <a href="speakers.html" class="btn btn-common wow fadeInUp" data-wow-delay="0.3s">show more</a>   
+          </div>   
+        </div>
+      </div>
+    </section>
+    <!-- Speakers Section End -->
+
+    <!-- Blog Section Start -->
+    <section id="blog" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Статті</h2>
+            <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. A <br> enean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>                      
+          </div> 
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="blog-item wow fadeInRight" data-wow-delay="0.2s">
+              <div class="blog-image">
+                <a href="#">
+                  <img src="assets/img/blog/img1.jpg" alt="">
+                </a>
+              </div>
+              <div class="blog-info">
+                <h3><a href="single-post.html">We make beautiful days with older adults</a></h3>
+                <div class="meta">
+                  <span class="meta-part"><a href="#"><i class="icon-eye"></i> 2500</a></span>
+                  <span class="meta-part"><a href="#"><i class="icon-bubble"></i> 100</a></span>
+                  <span class="meta-part"><a href="#"><i class="icon-calendar"></i> 21 Mar, 2016</a></span>
+                </div>
+                <p>Lorem ipsum dolor sit amet  cons tetuer adipiscing elit. dolor sit...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="blog-item wow fadeInUp" data-wow-delay="0.2s">
+              <div class="blog-image">
+                <a href="#">
+                  <img src="assets/img/blog/img2.jpg" alt="">
+                </a>
+              </div>
+              <div class="blog-info">
+                <h3><a href="single-post.html">Change-makers economic</a></h3>
+                <div class="meta">
+                  <span class="meta-part"><a href="#"><i class="icon-eye"></i> 2500</a></span>
+                  <span class="meta-part"><a href="#"><i class="icon-bubble"></i> 100</a></span>
+                  <span class="meta-part"><a href="#"><i class="icon-calendar"></i> 21 Mar, 2016</a></span>
+                </div>
+                <p>Lorem ipsum dolor sit amet  cons tetuer adipiscing elit. dolor sit...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="blog-item wow fadeInLeft" data-wow-delay="0.2s">
+              <div class="blog-image">
+                <a href="#">
+                  <img src="assets/img/blog/img3.jpg" alt="">
+                </a>
+              </div>
+              <div class="blog-info">
+                <h3><a href="single-post.html">It’s no secret that virtual reality</a></h3>
+                <div class="meta">
+                  <span class="meta-part"><a href="#"><i class="icon-eye"></i> 2500</a></span>
+                  <span class="meta-part"><a href="#"><i class="icon-bubble"></i> 100</a></span>
+                  <span class="meta-part"><a href="#"><i class="icon-calendar"></i> 21 Mar, 2016</a></span>            
+                </div>
+                <p>Lorem ipsum dolor sit amet  cons tetuer adipiscing elit. dolor sit...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog Section End -->
+
+
+
+    <!-- Map Section Start -->
+    <section id="map">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Get In Touch</h2>
+            <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. A <br> enean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+          </div>
+          <div id="map_canvas"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Map Section End -->  
+
+    <!-- Main contetn Start -->
+    <div class="main-content">  
+    <!-- Start Contact Us Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="row wow fadeInDown" data-wow-delay="0.3s">
+          <div class="col-md-8 col-sm-7 contact-form">   
+            <form role="form" id="contactForm" data-toggle="validator">  
+              <div class="title-header">
+                <h3 class="title-medium pull-left">Send us a message</h3>
+                <div class="icon pull-right"><i class="icon-envelope"></i></div>
+              </div>
+              <div class="row">                    
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Name</label>
+                    <input type="text" class="input" id="name" required data-error="Please enter your name">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Email</label>
+                    <input type="email" class="input" id="email" required data-error="Please enter your email">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="label-line textarea">
+                    <span class="span"></span>
+                    <label class="label transition">Message</label>
+                    <textarea id="message" class="input" required data-error="Write your message"></textarea>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <button type="submit" id="form-submit" class="btn btn-common">Send <i class="icon-paper-plane" aria-hidden="true"></i></button>
+                  <div id="msgSubmit" class="h3 text-center hidden"></div>
+                  <div class="clearfix"></div>
+                </div>
+              </div> 
+            </form> 
+          </div>  
+          <div class="col-md-4 col-sm-5 information">  
+              <div class="title-header">
+                <h3 class="title-medium">Contact Informatione</h3>
+              </div>              
+              <div class="contact-datails">
+                <div class="icon">
+                  <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="info">
+                  <span class="detail">Marriott Marquis, San Francisco, CA<br> United States</span>
+                </div>
+              </div>                
+              <div class="contact-datails">
+                <div class="icon">
+                  <i class="fa fa-phone"></i>
+                </div>
+                <div class="info">
+                  <span class="detail">+123456789000</span>
+                </div>
+              </div>
+              <div class="contact-datails">
+                <div class="icon">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                <div class="info">
+                  <span class="detail">info@abcd.com</span>
+                </div>
+              </div>
+              <div class="social text-center">
+                <a class="social" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a class="social" href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+                <a class="social" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Us Section  -->
+
+    <!-- Footer Section Start -->   
+    <footer class="section">  
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3><img src="assets/img/footer-logo.png" alt=""></h3>
+            <p>
+              If you think you have the passion, 
+              attitude and capability to join us 
+              the next big software company
+              s so that we can get the convers.
+            </p>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Docs</a></li>
+              <li><a href="#">Contact Us</a></li>               
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Learn More</h3>
+            <ul>
+              <li><a href="#">How it Works</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Log In</a></li>
+              <li><a href="#">Sign Up</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Quick Link</h3>
+            <ul>
+              <li><a href="#">Schedule</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Pricing</a></li>
+            </ul>
+          </div>          
+        </div>
+      </div>      
+    </footer>  
+    <!-- Footer Section End -->  
+   
+    </div>
+    <!-- Main contetn End -->
+
+{% endblock content %}
+
