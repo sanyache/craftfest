@@ -21,10 +21,14 @@ def index(request):
     masters = list(Master.objects.all())[:6]
     random.shuffle(masters)
     masters = masters[:6]
+    sponsors = Sponsor.objects.all()
+    articles = Article.objects.filter(is_approve=True).order_by('-created')[:3]
     return render(request, 'index.html', {'sliders': sliders,
                                           'schedule': schedule_paginate,
                                           'gallery_list': gallery_list,
-                                          'masters': masters})
+                                          'masters': masters,
+                                          'sponsors': sponsors,
+                                          'articles': articles})
 
 
 class GalleryList(ListView):
@@ -77,3 +81,22 @@ class MasterDetail(DetailView):
             photos = ImageGallery.objects.filter(gallery=self.object.gallery)
             context = paginate(photos, 9, self.request, context, var_name='photos')
         return context
+
+
+class ArticleList(ListView):
+    """
+    class for rendering article list
+    """
+    model = Article
+    queryset = Article.objects.filter(is_approve=True)
+    template_name = 'articles.html'
+    context_object_name = 'articles'
+
+
+class ArticleDetail(DetailView):
+    """
+    class for rendering article by <pk>
+    """
+    model = Article
+    template_name = 'article-detail.html'
+    context_object_name = 'article'

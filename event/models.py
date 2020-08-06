@@ -145,3 +145,49 @@ class Master(models.Model):
     class Meta:
         verbose_name = 'Майстер'
         verbose_name_plural = 'Майстри'
+
+
+class Sponsor(models.Model):
+    """
+    class describe sponsor
+    """
+    title = models.CharField(max_length=125, blank=True, verbose_name='назва')
+    image = models.ImageField(upload_to='sponsor/', verbose_name='фото')
+    image_avatar = ImageSpecField(source='image',
+                                  processors=[Transpose(), SmartResize(250, 205)],
+                                  format='JPEG',
+                                  options={'quality': 70})
+
+    class Meta:
+        verbose_name = 'Спонсор'
+        verbose_name_plural = 'Спонсори'
+
+    def __str__(self):
+        return "{}".format(self.title)
+
+
+class Article(models.Model):
+    """
+    model that describe post
+    """
+    title = models.CharField(max_length=125, verbose_name='Заголовок')
+    description = models.CharField(max_length=250, verbose_name='Короткий опис')
+    content = models.TextField(blank=True, verbose_name='контент')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='створено')
+    image = models.ImageField(upload_to='article/', null=True, blank=True, verbose_name='фото')
+    image_avatar = ImageSpecField(source='image',
+                                  processors=[Transpose(), SmartResize(360, 250)],
+                                  format='JPEG',
+                                  options={'quality': 60})
+    image_grid = ImageSpecField(source='image',
+                                processors=[Transpose(), SmartResize(750, 750)],
+                                format='JPEG',
+                                options={'quality': 80})
+    is_approve = models.BooleanField(default=False)
+
+    def __str__(self):
+        return "{}".format(self.title)
+
+    class Meta:
+        verbose_name = 'Стаття'
+        verbose_name_plural = 'Статті'

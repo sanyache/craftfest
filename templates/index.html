@@ -245,27 +245,13 @@
             <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Наші спонсори</h2>
             <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. A <br> enean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
           </div>
+          {% for sponsor in sponsors %}
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
-              <a href="#"><img src="assets/img/sponsors/logo-01.png" alt=""></a>
+              <a href="#"><img src="{{ sponsor.image_avatar.url }}" alt=""></a>
             </div>            
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.2s">
-              <a href="#"><img src="assets/img/sponsors/logo-02.png" alt=""></a>
-            </div>            
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.3s">
-              <a href="#"><img src="assets/img/sponsors/logo-03.png" alt=""></a>
-            </div>            
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.4s">
-              <a href="#"><img src="assets/img/sponsors/logo-04.png" alt=""></a>
-            </div>            
-          </div>
-        </div>
+          {% endfor %}
       </div>
     </section>
     <!-- Sponsors Section End --> 
@@ -353,61 +339,33 @@
           <div class="col-md-12">
             <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Статті</h2>
             <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. A <br> enean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>                      
-          </div> 
+          </div>
+          {% for article in articles %}
           <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="blog-item wow fadeInRight" data-wow-delay="0.2s">
               <div class="blog-image">
                 <a href="#">
-                  <img src="assets/img/blog/img1.jpg" alt="">
+                  <img src="{{ article.image_avatar.url }}" alt="">
                 </a>
               </div>
-              <div class="blog-info">
-                <h3><a href="single-post.html">We make beautiful days with older adults</a></h3>
+              <div class="blog-info ">
+                <h3><a href="single-post.html">{{ article.title }}</a></h3>
                 <div class="meta">
                   <span class="meta-part"><a href="#"><i class="icon-eye"></i> 2500</a></span>
                   <span class="meta-part"><a href="#"><i class="icon-bubble"></i> 100</a></span>
                   <span class="meta-part"><a href="#"><i class="icon-calendar"></i> 21 Mar, 2016</a></span>
                 </div>
-                <p>Lorem ipsum dolor sit amet  cons tetuer adipiscing elit. dolor sit...</p>
+                <p>{{ article.description }}</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="blog-item wow fadeInUp" data-wow-delay="0.2s">
-              <div class="blog-image">
-                <a href="#">
-                  <img src="assets/img/blog/img2.jpg" alt="">
-                </a>
-              </div>
-              <div class="blog-info">
-                <h3><a href="single-post.html">Change-makers economic</a></h3>
-                <div class="meta">
-                  <span class="meta-part"><a href="#"><i class="icon-eye"></i> 2500</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-bubble"></i> 100</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-calendar"></i> 21 Mar, 2016</a></span>
-                </div>
-                <p>Lorem ipsum dolor sit amet  cons tetuer adipiscing elit. dolor sit...</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="blog-item wow fadeInLeft" data-wow-delay="0.2s">
-              <div class="blog-image">
-                <a href="#">
-                  <img src="assets/img/blog/img3.jpg" alt="">
-                </a>
-              </div>
-              <div class="blog-info">
-                <h3><a href="single-post.html">It’s no secret that virtual reality</a></h3>
-                <div class="meta">
-                  <span class="meta-part"><a href="#"><i class="icon-eye"></i> 2500</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-bubble"></i> 100</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-calendar"></i> 21 Mar, 2016</a></span>            
-                </div>
-                <p>Lorem ipsum dolor sit amet  cons tetuer adipiscing elit. dolor sit...</p>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
+
+        </div>
+        <div class="more-btn">
+          <a href="{% url 'article_list' %}"
+             class="btn btn-common wow fadeInUp"
+             data-wow-delay="0.3s">Дізнатися більше</a>
         </div>
       </div>
     </section>

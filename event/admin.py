@@ -1,5 +1,7 @@
 from django.contrib import admin
+from django import forms
 from .models import *
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 # Register your models here.
 
@@ -53,3 +55,28 @@ class MasterAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name')
     ordering = ['last_name']
     list_filter = ['last_name']
+
+
+@admin.register(Sponsor)
+class SponsorAdmin(admin.ModelAdmin):
+
+    list_display = ['title']
+
+
+class ArticleAdminForm(forms.ModelForm):
+    """
+    form for article model with ckeditor
+    """
+    content = forms.CharField(label="контент", widget=CKEditorUploadingWidget(), required=False)
+
+    class Meta:
+        model = Article
+        fields = '__all__'
+
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+
+    list_display = ('title', 'is_approve', 'created')
+    list_display_links = ('title',)
+    form = ArticleAdminForm

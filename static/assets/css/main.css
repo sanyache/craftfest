@@ -957,7 +957,7 @@ fieldset[disabled] .btn {
    ========================================================================== */
 #sponsors .spnsors-logo {
   margin-top: 20px;
-  padding: 30px;
+  padding: 5px;
   text-align: center;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   -webkit-transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
@@ -1342,16 +1342,26 @@ h1 {
 #blog .blog-info {
   padding: 15px 45px;
   width: 100%;
-  height: 180px;
+  height: 240px;
+}
+#blog .blog-info p
+{
+  display: block;
+    display: -webkit-box;
+    width: auto;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 #blog .blog-info h3 {
   padding-bottom: 10px;
   margin: 0;
 }
 #blog .blog-info h3 a {
-  font-size: 18px;
+  font-size: 22px;
   color: #2d2d2d;
-  font-weight: 400;
+  font-weight: 500;
 }
 #blog .blog-info h3 a:hover {
   color: #e91e63;
