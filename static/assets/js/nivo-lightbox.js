@@ -49,8 +49,8 @@
 			if(!$('html').hasClass('nivo-lightbox-notouch')) $('html').addClass('nivo-lightbox-notouch');
 			if('ontouchstart' in document) $('html').removeClass('nivo-lightbox-notouch');
             $(document).on('click', 'a.preview', function(e){
-                console.log('show');
-                $this.showLightbox(e);
+                var photoLink = $(this);
+                $this.showLightbox(e, photoLink);
                 
             });
 			// Setup the click
@@ -75,10 +75,11 @@
 
         },
 
-        showLightbox: function(e){
+        showLightbox: function(e, link){
+            e.preventDefault();
             var $this = this,
-                currentLink = this.$el;
-
+                // currentLink = this.$el;    
+                currentLink = link;
 			// Check content
 			var check = this.checkContent(currentLink);
 			if(!check) return;

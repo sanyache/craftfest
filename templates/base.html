@@ -75,13 +75,13 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand"
-                 href="index.html"><img src="{% static 'assets/img/logo1.png' %}"
+                 href="{% url 'index' %}"><img src="{% static 'assets/img/logo1.png' %}"
                                         style="width: 100px; height: 100px;"></a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar">
               <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="index.html">Головна</a></li>
+                <li class="active"><a href="{% url 'index' %} ">Головна</a></li>
                 <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Pages <span class="caret"></span></a>-->
                    <!--<ul class="dropdown-menu">-->
                     <!--<li><a href="about.html">Про нас</a></li>-->
@@ -92,7 +92,7 @@
                   <!--</ul>-->
                 <!--</li>                -->
                 <li><a href="schedule.html">Про нас</a></li>
-                <li><a href="#">Галерея</a></li>
+                <li><a href="{% url 'gallery_list' %}">Галерея</a></li>
                 <li><a href="{% url 'master_list' %}">Майстри</a></li>
                 <li><a href="blog.html">Статті</a></li>
                 <li><a href="contact.html">Контакти</a></li>

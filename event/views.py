@@ -15,11 +15,16 @@ def index(request):
     schedule = Schedule.objects.all().order_by('time')
     schedule_paginate = paginate(schedule, 4, request, {}, var_name='schedule')
     gallery = Gallery.objects.filter(is_title=True).latest('created')
-    gallery_list = list(gallery.photos.all())[:12]
+    gallery_list = list(gallery.photos.all())
     random.shuffle(gallery_list)
+    gallery_list = gallery_list[:12]
+    masters = list(Master.objects.all())[:6]
+    random.shuffle(masters)
+    masters = masters[:6]
     return render(request, 'index.html', {'sliders': sliders,
                                           'schedule': schedule_paginate,
-                                          'gallery_list': gallery_list})
+                                          'gallery_list': gallery_list,
+                                          'masters': masters})
 
 
 class GalleryList(ListView):
@@ -68,7 +73,7 @@ class MasterDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(MasterDetail, self).get_context_data(**kwargs)
-        # if self.object.gallery:
-        #     photos =
-        print('req', self.kwargs['pk'], self.object.gallery)
+        if self.object.gallery:
+            photos = ImageGallery.objects.filter(gallery=self.object.gallery)
+            context = paginate(photos, 9, self.request, context, var_name='photos')
         return context

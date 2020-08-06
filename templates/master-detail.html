@@ -41,22 +41,50 @@
               </div>
             </div>
           </div>
+          {% if photos %}
           <div class="col-md-12 col-sm-12 col-xs-12 category">
             <h2>Вироби майстра</h2>
           </div>
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="single-member">
-
-              <div class="team-img col-md-6 col-sm-6 col-xs-6">
-                  <img src="{{ master.gallery.title_image_avatar.url }}">
+          <!-- Gallery Section Start -->
+          <section id="gallery" class="section">
+            <div class="container pages">
+              <div class="col-md-12">
+                <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Галерея</h2>
+                <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">{{ gallery.title }}</p>
               </div>
-              <div class="description col-md-6 col-sm-6 col-xs-12">
-                <p>
-                    {{ master.description }}
-                </p>
+              <div class="gallery-wrap wow fadeInDown items">
+                  {% for img in photos %}
+                  <div class="gallery-item col-md-4 col-sm-4 col-xs-12">
+                    <a href="{{ img.image_big.url }}"><img src="{{ img.image_avatar.url }}"></a>
+                    <div class="overlay">
+                      <div class="icons">
+                        <a class="preview lightbox"
+                           href="{{ img.image_big.url }}"
+                           data-lightbox-gallery="product">
+                            <i class="icon-eye"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
               </div>
             </div>
-          </div>
+              {% if photos.has_next %}
+                <div class="more-btn">
+                  <a href="?page={{ gallery_detail.next_page_number }}"
+                     class="btn btn-common wow fadeInUp load-more"
+                     data-pages="{{ paginator.num_pages}}"
+                     data-page="{{ page_obj.number }}"
+                     data-wow-delay="0.3s"
+                     id="load-more" >
+                      Завантажити ще
+                  </a>
+                </div>
+                {% endif %}
+            {% endif %}
+          </section>
+          <!-- Gallery Section End -->
+
         </div>
       </div>
     </section>

@@ -34,8 +34,12 @@
           <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="single-member wow fadeInRight" data-wow-delay="0.2s">
               <div class="team-desc">
-                <a href=""><h3>{{ master.get_full_name }}</h3></a>
-                <p>{{ master.short_description }}</p>
+                <a  href="{% url 'master_detail' master.id %}">
+                  <h3>{{ master.get_full_name }}</h3>
+                </a>
+                <a  href="{% url 'master_detail' master.id %}">
+                  <p>{{ master.short_description }}</p>
+                </a>
               </div> 
               <div class="team-img">
                 <img src="{{ master.image_masters.url }}" alt="">
