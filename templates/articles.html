@@ -7,11 +7,11 @@
       <div class="container"> 
         <div class="page-header-inner">         
           <ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">
-            <li><a href="index.html">Home</a></li>
-            <li class="page">Blog</li>
+            <li><a href="{% url 'index' %}">Головна</a></li>
+            <li class="page">Статті</li>
           </ol>
           <h1 class="page-title wow fadeInRight" data-wow-delay="300ms">
-            Blog
+            Статті
           </h1>
         </div>
       </div>
@@ -23,6 +23,7 @@
       <div class="container">
         <div class="row">
           <!-- Start Blog Posts -->
+
           <div class="col-md-8">
             <!-- Start Post -->
             {% for article in articles %}
@@ -30,7 +31,7 @@
               <!-- Post feature-inner -->
               <div class="feature-inner">
                 <a class="lightbox"
-                   href="assets/img/blog/bloglarge-1.jpg">
+                   href="{{ article.image_grid.url }}">
                   <img src="{{ article.image_grid.url }}">
                 </a>
               </div>
@@ -46,107 +47,23 @@
                 <h3 class="post-title"><a href="#">{{ article.title }}</a></h3>
                 <div class="meta">
                   <span class="meta-part"><a href="#"><i class="icon-user"></i> Admin</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-calendar"></i> Fabruary 25, 2015</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-event"></i> Events</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-bubbles"></i> John Doe</a></span>
+                  <span  class="meta-part">
+                    <a href="#"><i class="icon-calendar"></i>
+                      {{ article.created }}
+                    </a>
+                  </span>
                 </div> 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem facilis possimus quo cum delectus itaque! Soluta id a laudantium error omnis totam suscipit doloremque quam nostrum provident minus consectetur, debitis! Itaque ipsam consequuntur minus aut iusto, in earum dolores adipisci quis rerum, cum animi voluptate provident deserunt assumenda sequi pariatur molestias commodi.</p>
-                <a class="btn btn-common btn-small" href="#">Continue Reading</a>
+                <p>{{ article.description }}</p>
+                <a class="btn btn-common btn-small"
+                   href="{% url 'article_detail' article.id %}">Читати ...</a>
               </div>
-              {% endfor %}
+
               <!-- Post Content -->  
             </div>
-
+            {% endfor %}
             <!-- End Post -->
 
-            <!-- Start Post -->
-            <div class="blog-post">
-              <!-- Post feature-inner -->
-              <div class="feature-inner">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/kpmTSQyET2A" frameborder="0" allowfullscreen></iframe>
-                </div> 
-              </div>
-              <!-- End Post feature-inner -->   
-              <!-- Post format icon -->
-              <div class="post-format">
-                <span>
-                  <a href="#"><i class="icon-camrecorder"></i></a>
-                </span>
-              </div>         
-              <!-- Post Content -->
-              <div class="post-content">                  
-                <h3 class="post-title"><a href="#">Brooklyn Beta was the most important <br>conference Everyone had been</a></h3>
-                <div class="meta">
-                  <span class="meta-part"><a href="#"><i class="icon-user"></i> Admin</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-calendar"></i> Fabruary 25, 2015</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-event"></i> Events</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-bubbles"></i> John Doe</a></span>
-                </div> 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem facilis possimus quo cum delectus itaque! Soluta id a laudantium error omnis totam suscipit doloremque quam nostrum provident minus consectetur, debitis! Itaque ipsam consequuntur minus aut iusto, in earum dolores adipisci quis rerum, cum animi voluptate provident deserunt assumenda sequi pariatur molestias commodi.</p>
-                <a class="btn btn-common btn-small" href="#">Continue Reading</a>
-              </div>
-              <!-- Post Content -->  
-            </div>
-            <!-- End Post -->
 
-            <!-- Start Post -->
-            <div class="blog-post">
-              <!-- Post feature-inner -->
-              <div class="feature-inner">
-                <a class="lightbox" href="assets/img/blog/bloglarge-2.jpg"><img src="assets/img/blog/bloglarge-2.jpg" alt=""></a>
-              </div>
-              <!-- End Post feature-inner -->   
-              <!-- Post format icon -->
-              <div class="post-format">
-                <span>
-                  <a href="#"><i class="icon-flag"></i></a>
-                </span>
-              </div>  
-              <!-- Post Content -->
-              <div class="post-content">                  
-                <h3 class="post-title"><a href="#">Brooklyn Beta was the most important <br>conference Everyone had been</a></h3>
-                <div class="meta">
-                  <span class="meta-part"><a href="#"><i class="icon-user"></i> Admin</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-calendar"></i> Fabruary 25, 2015</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-event"></i> Events</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-bubbles"></i> John Doe</a></span>
-                </div> 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem facilis possimus quo cum delectus itaque! Soluta id a laudantium error omnis totam suscipit doloremque quam nostrum provident minus consectetur, debitis! Itaque ipsam consequuntur minus aut iusto, in earum dolores adipisci quis rerum, cum animi voluptate provident deserunt assumenda sequi pariatur molestias commodi.</p>
-                <a class="btn btn-common btn-small" href="#">Continue Reading</a>
-              </div>
-              <!-- Post Content -->  
-            </div>
-            <!-- End Post -->  
-
-            <!-- Start Post -->
-            <div class="blog-post">
-              <!-- Post feature-inner -->
-              <div class="feature-inner">
-                <a class="lightbox" href="assets/img/blog/bloglarge-3.jpg"><img src="assets/img/blog/bloglarge-3.jpg" alt=""></a>
-              </div>
-              <!-- End Post feature-inner -->   
-              <!-- Post format icon -->
-              <div class="post-format">
-                <span>
-                  <a href="#"><i class="icon-microphone"></i></a>
-                </span>
-              </div>  
-              <!-- Post Content -->
-              <div class="post-content">                  
-                <h3 class="post-title"><a href="#">Brooklyn Beta was the most important <br>conference Everyone had been</a></h3>
-                <div class="meta">
-                  <span class="meta-part"><a href="#"><i class="icon-user"></i> Admin</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-calendar"></i> Fabruary 25, 2015</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-event"></i> Events</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-bubbles"></i> John Doe</a></span>
-                </div> 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem facilis possimus quo cum delectus itaque! Soluta id a laudantium error omnis totam suscipit doloremque quam nostrum provident minus consectetur, debitis! Itaque ipsam consequuntur minus aut iusto, in earum dolores adipisci quis rerum, cum animi voluptate provident deserunt assumenda sequi pariatur molestias commodi.</p>
-                <a class="btn btn-common btn-small" href="#">Continue Reading</a>
-              </div>
-              <!-- Post Content -->  
-            </div>
-            <!-- End Post -->  
 
             <!-- Start Pagination -->
             <div id="pagination">

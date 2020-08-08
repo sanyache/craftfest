@@ -28,7 +28,9 @@
           {% for gallery in galleries %}
           <div class="col-md-4 col-sm-4 col-xs-12 gellery-pn">
             <div class="gallery-item">
-              <a href="#"><img src="{{ gallery.title_image_avatar.url }}" alt=""></a>
+              <a href="{% url 'gallery_detail' gallery.id %}">
+                <img  src="{{ gallery.title_image_avatar.url }}" alt="">
+              </a>
               <div class="overlay">
                 <div class="icons">
                   <a class="preview lightbox"
@@ -37,8 +39,11 @@
                      href="{% url 'gallery_detail' gallery.id %}"><i class="icon-link"></i></a>
                 </div>
               </div>
-              <h4>{{ gallery.title }}</h4>
+
             </div>
+            <a href="{% url 'gallery_detail' gallery.id %}">
+                <h4>{{ gallery.title }}</h4>
+              </a>
           </div>
             {% endfor %}
         </div>

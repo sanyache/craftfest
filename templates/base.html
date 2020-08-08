@@ -47,7 +47,7 @@
           <div class="container">
             <div class="col-md-6 col-sm-6">
               <div class="info-bar-address">
-                 <i class="icon-location-pin"></i> с. Войнівка Приютівська ОТГ
+                 <i class="icon-location-pin"></i> {{ event.place }}
               </div>
             </div>
             <div class="col-md-6 col-sm-6">
@@ -94,7 +94,7 @@
                 <li><a href="schedule.html">Про нас</a></li>
                 <li><a href="{% url 'gallery_list' %}">Галерея</a></li>
                 <li><a href="{% url 'master_list' %}">Майстри</a></li>
-                <li><a href="blog.html">Статті</a></li>
+                <li><a href="{% url 'article_list' %}">Статті</a></li>
                 <li><a href="contact.html">Контакти</a></li>
               </ul>
             </div><!-- /navbar-collapse -->

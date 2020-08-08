@@ -191,3 +191,19 @@ class Article(models.Model):
     class Meta:
         verbose_name = 'Стаття'
         verbose_name_plural = 'Статті'
+
+
+class Event(models.Model):
+    """
+    class describe event's time and place
+    """
+    title = models.CharField(max_length=200, verbose_name='назва заходу', blank=True)
+    place = models.CharField(max_length=200, verbose_name='місце проведення', blank=True)
+    time = models.DateTimeField(blank=True, null=True, verbose_name='дата проведення')
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = 'Час і місце'
+
+    def __str__(self):
+        return "{} {}".format(self.title, self.time)

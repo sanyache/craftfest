@@ -80,3 +80,9 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'is_approve', 'created')
     list_display_links = ('title',)
     form = ArticleAdminForm
+
+
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+
+    list_display = ['title', 'time', 'place', 'is_active']

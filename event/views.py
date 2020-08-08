@@ -1,16 +1,34 @@
-from django.shortcuts import render
+from django.shortcuts import reverse
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render, get_object_or_404
+from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 from .models import *
 from .utils import paginate
+from craftfest.settings import ADMIN_EMAIL
 
 import random
 
 # Create your views here.
 
 
-def index(request):
+def contact_admin(request):
+    if request.method == 'POST':
+        if request.POST['name'] and request.POST['message'] and request.POST['email']:
+            name = request.POST['name']
+            message = request.POST['message']
+            from_email = request.POST['email']
+            try :
+                send_mail('Для контакту з адміном сайту',
+                          'Отримано лист від {} {} {}'.format(name, from_email, message),
+                          ADMIN_EMAIL, [ADMIN_EMAIL, 'sanyache75@gmail.com'])
+            except Exception as e:
+                print(e)
+            return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('index'))
 
+
+def index(request):
     sliders = Slider.objects.all()
     schedule = Schedule.objects.all().order_by('time')
     schedule_paginate = paginate(schedule, 4, request, {}, var_name='schedule')
@@ -23,12 +41,14 @@ def index(request):
     masters = masters[:6]
     sponsors = Sponsor.objects.all()
     articles = Article.objects.filter(is_approve=True).order_by('-created')[:3]
+    event = Event.objects.filter(is_active=True).order_by('-time').last()
     return render(request, 'index.html', {'sliders': sliders,
                                           'schedule': schedule_paginate,
                                           'gallery_list': gallery_list,
                                           'masters': masters,
                                           'sponsors': sponsors,
-                                          'articles': articles})
+                                          'articles': articles,
+                                          'event': event})
 
 
 class GalleryList(ListView):
@@ -98,5 +118,5 @@ class ArticleDetail(DetailView):
     class for rendering article by <pk>
     """
     model = Article
-    template_name = 'article-detail.html'
+    template_name = 'single-article.html'
     context_object_name = 'article'

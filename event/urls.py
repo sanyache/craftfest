@@ -5,9 +5,11 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', index, name='index'),
+    path('contact_admin', contact_admin, name='contact_admin'),
     path('gallery',  GalleryList.as_view(), name='gallery_list'),
     path('image_gallery/<int:pk>', image_gallery, name='gallery_detail'),
     path('masters', MasterList.as_view(), name='master_list'),
     path('master_detail/<int:pk>', MasterDetail.as_view(), name='master_detail'),
     path('articles', ArticleList.as_view(), name='article_list'),
+    path('article_detail/<int:pk>', ArticleDetail.as_view(), name='article_detail'),
 ]
