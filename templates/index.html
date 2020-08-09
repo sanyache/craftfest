@@ -300,7 +300,9 @@
           <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="single-member wow fadeInRight" data-wow-delay="0.2s">
               <div class="team-desc">
-                <a href=""><h3>{{ master.get_full_name }}</h3></a>
+                <a  href="{% url 'master_detail' master.id %}">
+                  <h3>{{ master.get_full_name }}</h3>
+                </a>
                 <p>{{ master.short_description }}</p>
               </div>
               <div class="team-img">
@@ -383,9 +385,16 @@
           <div class="col-md-12">
             <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Хочете стати учасником
               нашого ярмарку?</h2>
-            <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. A <br> enean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+            <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Відправте нам листа,
+              вкажіть майстром якої справи ви є, вкажіть контактні дані і члени нашої команди
+              зв'яжуться з вами!
+            </p>
           </div>
-          <div id="map_canvas"></div>
+          <div class="col-md-12">
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2632.886939081497!2d33.05654440857874!3d48.7076419120002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1suk!2sua!4v1596958384210!5m2!1suk!2sua" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </div>
+          <!--<div id="map_canvas"></div>-->
         </div>
       </div>
     </section>
@@ -404,14 +413,14 @@
                   data-toggle="validator">
               {% csrf_token %}
               <div class="title-header">
-                <h3 class="title-medium pull-left">Send us a message</h3>
+                <h3 class="title-medium pull-left">Відправити нам повідомлення</h3>
                 <div class="icon pull-right"><i class="icon-envelope"></i></div>
               </div>
               <div class="row">                    
                 <div class="col-md-6">
                   <div class="label-line">
                     <span class="span"></span>
-                    <label class="label transition">Name</label>
+                    <label class="label transition">Ім'я</label>
                     <input type="text"
                            class="input"
                            id="name"
@@ -435,7 +444,7 @@
                 <div class="col-md-12">
                   <div class="label-line textarea">
                     <span class="span"></span>
-                    <label class="label transition">Message</label>
+                    <label class="label transition">Повідомлення</label>
                     <textarea id="message"
                               name="message"
                               class="input"
@@ -443,7 +452,8 @@
                     </textarea>
                     <div class="help-block with-errors"></div>
                   </div>
-                  <button type="submit" id="" class="btn btn-common">Send <i class="icon-paper-plane" aria-hidden="true"></i></button>
+                  <button type="submit" id="" class="btn btn-common">Відправити <i
+                          class="icon-paper-plane" aria-hidden="true"></i></button>
                   <div id="msgSubmit" class="h3 text-center hidden"></div>
                   <div class="clearfix"></div>
                 </div>
@@ -452,14 +462,14 @@
           </div>  
           <div class="col-md-4 col-sm-5 information">  
               <div class="title-header">
-                <h3 class="title-medium">Contact Informatione</h3>
+                <h3 class="title-medium">Контактна інформація</h3>
               </div>              
               <div class="contact-datails">
                 <div class="icon">
                   <i class="fa fa-map-marker"></i>
                 </div>
                 <div class="info">
-                  <span class="detail">Marriott Marquis, San Francisco, CA<br> United States</span>
+                  <span class="detail">Приютівська ОТГ<br> Україна</span>
                 </div>
               </div>                
               <div class="contact-datails">
@@ -475,7 +485,7 @@
                   <i class="fa fa-envelope"></i>
                 </div>
                 <div class="info">
-                  <span class="detail">info@abcd.com</span>
+                  <span class="detail">kraftfest@ukr.net</span>
                 </div>
               </div>
               <div class="social text-center">

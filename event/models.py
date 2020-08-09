@@ -118,7 +118,7 @@ class Master(models.Model):
     last_name = models.CharField(max_length=125, verbose_name='прізвище')
     image = models.ImageField(upload_to='master/', verbose_name='фото')
     image_avatar = ImageSpecField(source='image',
-                                  processors=[Transpose(), SmartResize(360, 240)],
+                                  processors=[Transpose(), SmartResize(570, 570)],
                                   format='JPEG',
                                   options={'quality': 70})
     image_masters = ImageSpecField(source='image',

@@ -1454,9 +1454,10 @@ h1 {
    Contact Forem 
    ========================================================================== */
 .main-content {
-  background: url(../img/background/contact-bg.jpg) center;
+  background: linear-gradient(to bottom,#111,transparent), url(../img/background/bg-2.jpg);
   background-size: cover;
 }
+
 #contact .contact-form {
   background: #fff;
   padding: 57px 40px;
@@ -1862,7 +1863,39 @@ footer ul li a {
 #content img {
   width: 100%;
 }
+.posts
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 991px)
+{
+    .posts
+    {
+        flex-direction: column;
+    }
+}
+@media (max-width: 768px)
+{
+    .posts
+    {
+        flex-direction: column;
+    }
+    .container .blog-post
+    {
+        flex-direction: column;
+        max-width: 350px;
+    }
+    .container .blog-post .feature-inner
+    {
+        max-width: 100%;
+    }
+}
 .blog-post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 40px;
   overflow: hidden;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);

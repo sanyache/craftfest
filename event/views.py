@@ -21,7 +21,7 @@ def contact_admin(request):
             try :
                 send_mail('Для контакту з адміном сайту',
                           'Отримано лист від {} {} {}'.format(name, from_email, message),
-                          ADMIN_EMAIL, [ADMIN_EMAIL, 'sanyache75@gmail.com'])
+                          ADMIN_EMAIL, [ADMIN_EMAIL, 'kraftfest@ukr.net'])
             except Exception as e:
                 print(e)
             return HttpResponseRedirect(reverse('index'))
