@@ -12,4 +12,5 @@ urlpatterns = [
     path('master_detail/<int:pk>', MasterDetail.as_view(), name='master_detail'),
     path('articles', ArticleList.as_view(), name='article_list'),
     path('article_detail/<int:pk>', ArticleDetail.as_view(), name='article_detail'),
+    path('about_us', TemplateView.as_view(template_name='about_us.html'), name='about_us'),
 ]

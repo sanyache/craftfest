@@ -779,6 +779,52 @@ fieldset[disabled] .btn {
 #about .service-block:hover {
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.14);
 }
+.container .about_us
+{
+    position: relative;
+    width: 1000px;
+    background: #fff;
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+}
+.container .about_us .imgBox
+{
+    max-width: 450px;
+    flex: 0 0 450px;
+}
+.container .about_us .imgBox img
+{
+    max-width: 100%;
+    height: auto;
+}
+.container .about_us .content
+{
+    margin-left: 20px;
+}
+@media (max-width: 991px)
+{
+    .container
+    {
+        flex-direction: column;
+    }
+}
+@media (max-width: 768px)
+{
+    .container
+    {
+        flex-direction: column;
+    }
+    .container .about_us
+    {
+        flex-direction: column;
+        max-width: 400px;
+    }
+    .container .about_us .imgBox
+    {
+        max-width: 100%;
+    }
+}
 /* ==========================================================================
    Schedule Section Start
    ========================================================================== */
@@ -1822,7 +1868,7 @@ footer ul li a {
 .social-link a i {
   text-align: center;
   color: #777777;
-  font-size: 18px;
+  font-size: 22px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 0px;
   height: 38px;
@@ -1848,8 +1894,31 @@ footer ul li a {
 .social-link .youtube:hover i {
   color: #D42424;
 }
+.blog
+{
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+.blog .post-content  blockquote,
+.blog .post-content p
+{
+  padding: 0 10px;
+}
+.blog h2
+{
+  text-align: center;
+  color: #D42424;
+  margin-bottom: 30px;
+}
+.blog .meta
+{
+  margin: 5px 10px;
+}
+#social
+{
+  padding: 10px;
+}
 .post-title {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   margin-bottom: 15px;
   line-height: 30px;
