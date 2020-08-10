@@ -51,6 +51,12 @@ def index(request):
                                           'event': event})
 
 
+def contact(request):
+
+    if request.method == 'POST':
+        contact_admin(request)
+    return render(request, 'contact.html')
+
 class GalleryList(ListView):
     """
     view for rendering gallery list
