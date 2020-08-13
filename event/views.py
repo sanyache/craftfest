@@ -57,6 +57,17 @@ def contact(request):
         contact_admin(request)
     return render(request, 'contact.html')
 
+
+class ScheduleList(ListView):
+    """
+    full schedule list
+    """
+    model = Schedule
+    queryset = Schedule.objects.all().order_by('time')
+    context_object_name = 'schedule'
+    template_name = 'schedule.html'
+
+
 class GalleryList(ListView):
     """
     view for rendering gallery list

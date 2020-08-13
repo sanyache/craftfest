@@ -779,48 +779,99 @@ fieldset[disabled] .btn {
 #about .service-block:hover {
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.14);
 }
-.container .about_us
+.container-us
+{
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+}
+.container-us .about_us
 {
     position: relative;
-    width: 1000px;
+    width: 90%;
     background: #fff;
     margin: 10px;
     padding: 15px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.container .about_us .imgBox
+.container-us .about_us .imgBox
 {
-    max-width: 450px;
-    flex: 0 0 450px;
+    max-width: 400px;
+    flex: 0 0 400px;
+    background-color: #4d79ff;
 }
-.container .about_us .imgBox img
+.container-us .about_us .imgBox img
 {
     max-width: 100%;
     height: auto;
 }
-.container .about_us .content
+.container-us .about_us .content
 {
     margin-left: 20px;
 }
+.container-us .about_us .content p
+{
+  color: #000;
+  padding-right: 20px;
+  font-size: 22px;
+  line-height: 30px;
+}
+.container-us .manager
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 70%;
+  margin: 8px;
+  padding: 15px;
+}
+.container-us .manger .imgBox
+{
+  max-width: 200px;
+  flex: 0 0 200px;
+}
+.container-us .manager .imgBox img
+{
+    width: 190px;
+    height: auto;
+}
+.container-us .manager .content p
+{
+  color: #000;
+  padding: 10px;
+  font-size: 18px;
+  line-height: 22px;
+}
 @media (max-width: 991px)
 {
-    .container
+    .container-us
     {
         flex-direction: column;
     }
 }
 @media (max-width: 768px)
 {
-    .container
+    .container-us
     {
         flex-direction: column;
     }
-    .container .about_us
+    .container-us .about_us
     {
         flex-direction: column;
-        max-width: 400px;
+        max-width: 450px;
     }
-    .container .about_us .imgBox
+    .container-us .about_us .imgBox
+    {
+        max-width: 100%;
+    }
+    .container-us .manager
+    {
+        flex-direction: column;
+        max-width: 450px;
+    }
+    .container-us .manager .imgBox
     {
         max-width: 100%;
     }
@@ -997,6 +1048,35 @@ fieldset[disabled] .btn {
 }
 .board .coffee p {
   color: #fff;
+}
+.schedule-line
+{
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 991px)
+{
+    .schedule-line
+    {
+        flex-direction: column;
+    }
+    .board .member
+    {
+      margin-top: 35px;
+      margin-bottom: 70px;
+    }
+}
+@media (max-width: 768px)
+{
+    .schedule-line
+    {
+        flex-direction: column;
+    }
+    .board .member
+    {
+      margin-top: 35px;
+      margin-bottom: 70px;
+    }
 }
 /* ==========================================================================
    Sponsors Section Style

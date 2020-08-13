@@ -94,6 +94,7 @@ class ImageGallery(models.Model):
     class Meta:
         verbose_name = "Фото галереї"
         verbose_name_plural = "Фото галереї"
+        ordering = ['id']
 
 
 class CategoryProduct(models.Model):
@@ -152,6 +153,7 @@ class Sponsor(models.Model):
     class describe sponsor
     """
     title = models.CharField(max_length=125, blank=True, verbose_name='назва')
+    site = models.CharField(max_length=150, blank=True, null=True, verbose_name='сайт')
     image = models.ImageField(upload_to='sponsor/', verbose_name='фото')
     image_avatar = ImageSpecField(source='image',
                                   processors=[Transpose(), SmartResize(250, 205)],

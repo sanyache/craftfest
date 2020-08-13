@@ -95,6 +95,9 @@
                 <li><a href="{% url 'gallery_list' %}">Галерея</a></li>
                 <li><a href="{% url 'master_list' %}">Майстри</a></li>
                 <li><a href="{% url 'article_list' %}">Статті</a></li>
+                {% if event %}
+                <li><a href="{% url 'schedule_list' %}">Програма</a></li>
+                {% endif %}
                 <li><a href="{%  url 'contact' %}">Контакти</a></li>
               </ul>
             </div><!-- /navbar-collapse -->

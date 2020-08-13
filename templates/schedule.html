@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Page Header Start -->
+    <div class="page-header">
+      <div class="container">
+        <div class="page-header-inner">
+          <ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">
+            <li><a href="{% url 'index' %}">Головна</a></li>
+            <li class="page">Програма ярмарку</li>
+          </ol>
+          <h1 class="page-title wow fadeInRight" data-wow-delay="300ms">
+            Майстри
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End-->
+
+    <!-- Schedule Section Start -->
+    <section id="schedule" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+              <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Програма</h2>
+              <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">заходів
+                ярмару крафтових виробів.</p>
+              <!-- Schedule Main board Start-->
+              <div class="main-board wow fadeInDown pages" data-wow-delay="0.3s">
+                <!-- Nav tabs -->
+
+                <!-- Tab content Start -->
+                <div class="tab-content items">
+                  <!-- Day 1 Start -->
+                    <div role="tabpanel"
+                         class="tab-pane active">
+
+                    <div class="row">
+                      <div class="col-md-12 board text-center">
+                        <div class="column-1">
+                          <ul class="event-time-list">
+                            <li><h2>Час</h2>
+                              <ul class="schedule " id="time">
+                                {% for t in schedule %}
+                                <li  class="color-1 schedule-line">
+                                  <div class="col-md-4 col-sm-6">
+                                      <a href="#" class="btn btn-info">
+                                        {{ t.time }}
+                                      </a>
+                                  </div>
+                                  <div class="col-md-8 col-sm-8">
+                                    <div class="member" >
+                                      <div class="button">
+                                        <a href="#" class="btn-large bg-2">
+                                          <img src="{% static 'assets/img/microphone.png' %}">
+                                          {{t.short_description }}
+                                        </a>
+                                      </div>
+                                        <h4>{{ t.description }}</h4>
+                                    </div>
+                                  </div>
+                                </li>
+                                {% endfor %}
+                              </ul>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <!-- Day 1 End -->
+                </div>
+                <!-- Tab content Start -->
+              </div>
+              <!-- Schedule Main board End-->
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- Schedule Section End -->
+
+
+
+{% endblock content %}
