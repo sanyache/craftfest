@@ -10,6 +10,29 @@
     }
   );
 
+  /* $('.navbar-right').click(function(e){
+    e.preventDefault();
+    parentLi = e.target.parentElement;
+    var menuList = this.querySelectorAll('ul > li');
+    menuList.forEach(el => {
+      if(el === parentLi) { 
+        el.classList.add('active');
+      }
+      if(el.classList.contains('active') && el !== parentLi) {
+        el.classList.remove('active');
+      }
+    });
+    window.location.href = e.target;
+  }); */
+
+  jQuery(function($) {
+    var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+    $('.navbar ul li a').each(function() {
+     if (this.href === path) {
+      $(this).closest('li').addClass('active');
+     }
+    });
+  });
 /* ==========================================================================
    countdown timer
    ========================================================================== */

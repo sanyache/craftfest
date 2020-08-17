@@ -371,16 +371,17 @@
           <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="blog-item wow fadeInRight" data-wow-delay="0.2s">
               <div class="blog-image">
-                <a href="#">
+                <a href="{% url 'article_detail' article.id %}">
                   <img src="{{ article.image_avatar.url }}" alt="">
                 </a>
               </div>
               <div class="blog-info ">
-                <h3><a href="single-post.html">{{ article.title }}</a></h3>
+                <h3><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h3>
                 <div class="meta">
-                  <span class="meta-part"><a href="#"><i class="icon-eye"></i> 2500</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-bubble"></i> 100</a></span>
-                  <span class="meta-part"><a href="#"><i class="icon-calendar"></i> 21 Mar, 2016</a></span>
+                  <span  class="meta-part">
+                    <a href="#"><i class="icon-calendar"></i>{{ article.created }}
+                    </a>
+                  </span>
                 </div>
                 <p>{{ article.description }}</p>
               </div>

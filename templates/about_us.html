@@ -54,45 +54,17 @@
             </div>
         </div>
     </div>
+    {% for manager in managers %}
     <div class="container-us">
        <div class="manager">
             <div class="imgBox">
-                <img src="{% static 'assets/img/teacher/manager1.jpeg' %}">
+                <img src="{{ manager.image.url }}">
             </div>
             <div class="content">
-                <p>Чемерис Ірина Анатоліївна – керівник проєкту «Ярмарок крафтових виробів»,
-                    здійснює загальне керівництво та координацію роботи під час підготовки та
-                    проведення Ярмарку, координацію роботи сайту.
+                <p>{{ manager.get_full_name }} – {{ manager.duty }}.
                 </p>
             </div>
         </div>
     </div>
-    <div class="container-us">
-       <div class="manager">
-            <div class="imgBox">
-                <img src="{% static 'assets/img/teacher/manager2.jpg' %}">
-            </div>
-            <div class="content">
-                <p>Дячук Марина Вікторівна – менеджер проєкту по зв’язках з виробниками
-                    крафтової продукції, забезпечує координацію роботи по моніторингу та
-                    взаємодію з виробниками крафтових виробів, підтримує контакти між
-                    виробниками та споживачами.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="container-us">
-       <div class="manager">
-            <div class="imgBox">
-                <img src="{% static 'assets/img/teacher/manager3.jpeg' %}">
-            </div>
-            <div class="content">
-                <p>Клименко Гліб Олександрович - менеджер проєкту по наповненню та роботі
-                    сайту, забезпечує роботу сайту, його оновлення, взаємодіє з рекламодавцями та
-                    засобами масової інформації.
-                </p>
-            </div>
-        </div>
-    </div>
-
+    {% endfor %}
 {% endblock content %}

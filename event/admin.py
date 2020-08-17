@@ -57,6 +57,14 @@ class MasterAdmin(admin.ModelAdmin):
     list_filter = ['last_name']
 
 
+@admin.register(Manager)
+class ManagerAdmin(admin.ModelAdmin):
+    """
+    class for model Manager
+    """
+    list_display = ('last_name', 'first_name')
+
+
 @admin.register(Sponsor)
 class SponsorAdmin(admin.ModelAdmin):
 

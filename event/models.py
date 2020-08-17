@@ -148,6 +148,27 @@ class Master(models.Model):
         verbose_name_plural = 'Майстри'
 
 
+class Manager(models.Model):
+    """
+    class describe manager who server for fest
+    """
+    first_name = models.CharField(max_length=125, verbose_name="ім'я")
+    last_name = models.CharField(max_length=125, verbose_name='прізвище')
+    middle_name = models.CharField(max_length=125, verbose_name='по -батькові', default='')
+    image = models.ImageField(upload_to='manager/', verbose_name='фото')
+    duty = models.TextField(blank=True, null=True, verbose_name='відповідальний за')
+
+    def get_full_name(self):
+        return "{} {} {}".format(self.last_name, self.first_name, self.middle_name)
+
+    def __str__(self):
+        return "{} {}".format(self.last_name, self.first_name)
+
+    class Meta:
+        verbose_name = 'Менеджер'
+        verbose_name_plural = 'Менеджери'
+
+
 class Sponsor(models.Model):
     """
     class describe sponsor

@@ -58,6 +58,15 @@ def contact(request):
     return render(request, 'contact.html')
 
 
+class ManagerList(ListView):
+    """
+    managers for about_us
+    """
+    model = Manager
+    context_object_name = 'managers'
+    template_name = 'about_us.html'
+
+
 class ScheduleList(ListView):
     """
     full schedule list
