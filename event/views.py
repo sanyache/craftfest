@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 from .models import *
 from .utils import paginate
 from craftfest.settings import ADMIN_EMAIL
@@ -111,6 +112,14 @@ class MasterList(ListView):
         categories = CategoryProduct.objects.all()
         context['categories'] = categories
         return context
+
+    def get_queryset(self):
+        queryset = super(MasterList, self).get_queryset()
+        if self.request.GET.get('name'):
+            q = self.request.GET.get('name')
+            queryset = Master.objects.filter(Q(last_name__icontains=q) |
+                                             Q(first_name__icontains=q))
+        return queryset
 
 
 class MasterDetail(DetailView):

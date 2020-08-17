@@ -8,11 +8,12 @@
         <div class="page-header-inner">
           <ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">
             <li><a href="{% url 'index' %}">Головна</a></li>
-            <li class="page">Майстри</li>
+              <li class="page"><a href="{% url 'master_list' %}">Майстри</a></li>
           </ol>
-          <h1 class="page-title wow fadeInRight" data-wow-delay="300ms">
-            Майстри
-          </h1>
+          <a href="{% url 'master_list' %}"><h1 class="page-title wow fadeInRight" data-wow-delay="300ms">
+              Майстри
+            </h1>
+          </a>
         </div>
       </div>
     </div>
