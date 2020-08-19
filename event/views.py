@@ -155,3 +155,13 @@ class ArticleDetail(DetailView):
     model = Article
     template_name = 'single-article.html'
     context_object_name = 'article'
+
+
+class ProductList(ListView):
+    """
+    class for rendering product list
+    """
+    model = Product
+    queryset = Product.objects.filter(is_active=True)
+    template_name = 'product_list.html'
+    context_object_name = 'products'

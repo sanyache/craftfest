@@ -230,3 +230,30 @@ class Event(models.Model):
 
     def __str__(self):
         return "{} {}".format(self.title, self.time)
+
+
+class Product(models.Model):
+    """
+    class describe product from master to sale
+    """
+    category = models.ForeignKey(CategoryProduct, related_name='products',
+                                 on_delete=models.SET_NULL,
+                                 verbose_name='Категорія', blank=True, null=True, db_index=True)
+    gallery = models.ForeignKey(Gallery, on_delete=models.SET_NULL, blank=True, null=True,
+                                related_name="gallery_product")
+    name = models.CharField(max_length=200, db_index=True, verbose_name='Назва')
+    master = models.ForeignKey(Master, on_delete=models.CASCADE, verbose_name='майстер')
+    short_description = models.CharField(max_length=200, verbose_name='Короткий опис товару')
+    description = models.TextField(blank=True, verbose_name='Опис товару')
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Ціна', blank=True,
+                                null=True)
+    is_active = models.BooleanField(default=True, verbose_name='Пропозиція активна')
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товари'
+
+    def __str__(self):
+        return "{} {}".format(self.name, self.master)
+

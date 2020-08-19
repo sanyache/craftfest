@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load event_extras %}
+{% block content %}
+
+    <!-- Page Header Start -->
+    <!--<div class="page-header">-->
+      <!--<div class="container">-->
+        <!--<div class="page-header-inner">-->
+          <!--<ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">-->
+            <!--<li><a href="{% url 'index' %}">Головна</a></li>-->
+            <!--<li class="page"><a href="{% url 'master_list' %}">Товари</a></li>-->
+          <!--</ol>-->
+          <!--<a href="{% url 'master_list' %}"><h1 class="page-title wow fadeInRight" data-wow-delay="300ms">-->
+              <!--Товари-->
+            <!--</h1>-->
+          <!--</a>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!-- Page Header End-->
+
+    <!-- Side bar menu -->
+    <div class="product">
+        <div class="product-sidebar">
+            <header>
+                Категорії
+            </header>
+            <ul>
+                <li><a href="#"><i class="fa fa-qrcode"></i>Dashboard</a></li>
+                <li><a href="#"><i class="fa fa-link"></i>Shortcuts</a></li>
+                <li><a href="#"><i class="fa fa-calendar-week"></i>Events</a></li>
+                <li><a href="#"><i class="fa fa-question-circle"></i>About</a></li>
+                <li><a href="#"><i class="fa fa-sliders-h"></i>Services</a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
+            </ul>
+        </div>
+        <section>
+          <div class="product-list">
+              {% for product in products %}
+              <div class="card">
+                <div class="imgBox feature-inner">
+                   <a class="preview lightbox"
+                      href="{{ product.gallery.title_image.url }}">
+                     <img src="{{ product.gallery.title_image_avatar.url }}">
+                   </a>
+                </div>
+                <div class="content">
+                    <div class="price">
+                        <img src="{% static 'assets/img/1.png' %}">
+                        <span>{{ product.price }}</span>
+                    </div>
+                    <div class="title">
+                        <h3 class="post-title">
+                          <a href="">{{ product.name }}</a>
+                        </h3>
+                    </div>
+                    <div class="meta">
+                      <span class="meta-part">
+                          <a href="#"><i class="icon-user"></i>{{ product.master }}</a>
+                      </span>
+                      <span  class="meta-part">
+                        <a href="#"><i class="icon-calendar"></i>
+                          {{ product.created }}
+                        </a>
+                      </span>
+                    </div>
+                    <div class="description">
+                        <p>{{ product.short_description }}</p>
+
+                    </div>
+                    <div>
+                        <a class="btn btn-common btn-small"
+                           href="">Переглянути ...</a>
+                    </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+        </section>
+    </div>
+{% endblock content %}

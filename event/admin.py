@@ -94,3 +94,11 @@ class ArticleAdmin(admin.ModelAdmin):
 class EventAdmin(admin.ModelAdmin):
 
     list_display = ['title', 'time', 'place', 'is_active']
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+
+    list_display = ['name', 'master', 'category', 'price','is_active', 'gallery']
+    list_display_links = ['name']
+    list_filter = ['master', 'category']

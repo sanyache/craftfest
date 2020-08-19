@@ -733,7 +733,7 @@ fieldset[disabled] .btn {
 }
 #sky .container .content .slogan
 {
-  margin-top: 84px;
+  margin-top: 250px;
 }
 #sky .container .content .slogan p
 {
@@ -1019,6 +1019,154 @@ fieldset[disabled] .btn {
     .container-us .manager .imgBox
     {
         max-width: 100%;
+    }
+}
+/* ==========================================================================
+   Product
+   ========================================================================== */
+.product
+{
+  margin-top: 20px;
+}
+.product-sidebar
+{
+  position: fixed;
+  left: 0px;
+  top: 0;
+  z-index: 1;
+  overflow: hidden;
+  width: 250px;
+  height: 100vh;
+  background: #0099e6;
+  transition: all .5s ease;
+  margin-right: 20px;
+}
+.product-sidebar header
+{
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background: #003d66;
+    user-select: none;
+}
+.product-sidebar ul a 
+{
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid black;
+    transition: 0.4s;
+}
+.product-sidebar  ul li:hover a
+{
+    padding-left: 50px;
+}
+.product section
+{
+  margin-left: 250px;
+  left: 250px;
+  display: flex;
+
+}
+.product section .product-list
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.product section .product-list .card
+{
+  width: 370px;
+  margin: 40px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.product section .product-list .card .imgBox
+{
+  display: block;
+  width: 370px;
+  height: auto;
+}
+.product section .product-list .card .content
+{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+.product section .product-list .card .content .price
+{
+  position: absolute;
+  top: -25%;
+}
+.product section .product-list .card .content .price img
+{
+  width: 100px;
+}
+.product section .product-list .card .content .price span
+{
+  color: #0099e6;
+  font-size: 24px;
+  font-weight: 700;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+.product section .product-list .card .content .price span::before,
+.product section .product-list .card .content .price img
+{
+  -webkit-animation: rotate 3s linear 0s infinite normal;
+  animation: rotate 3s linear 0s infinite normal;
+}
+.shopbox span::before, .classes__icon img {
+  -webkit-animation: rotate 3s linear 0s infinite normal;
+  animation: rotate 3s linear 0s infinite normal;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+
+}
+.product section .product-list .card .content .title
+{
+  margin-top: 20px;
+}
+@media (max-width: 991px)
+{
+    .product-list
+    {
+        flex-direction: column;
+    }
+}
+@media (max-width: 768px)
+{
+    .product-list
+    {
+        flex-direction: column;
     }
 }
 /* ==========================================================================
