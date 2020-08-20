@@ -17,4 +17,5 @@ urlpatterns = [
     path('about_us', ManagerList.as_view(), name='about_us'),
     path('product_list', ProductList.as_view(), name='product_list'),
     path('product_by_category/<int:pk>', product_list_by_category, name='product_by_category'),
+    path('product_detail/<int:pk>', ProductDetail.as_view(), name='product_detail'),
 ]

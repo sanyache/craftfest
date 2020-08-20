@@ -39,7 +39,7 @@ def get_shot_product_list():
         random.shuffle(product_id)
         for id in product_id[:3]:
             products.append(id)
-    product_list = Product.objects.filter(id__in=products).select_related('master', 'gallery', 
+    product_list = Product.objects.filter(id__in=products).select_related('master', 'gallery',
                                                                           'category')
     return product_list
 
@@ -199,3 +199,12 @@ def product_list_by_category(request, pk):
     data = dict()
     data['html_form'] = render_to_string('includes/partial_product_list.html', context, request)
     return JsonResponse(data)
+
+
+class ProductDetail(DetailView):
+    """
+    class for rendering product's detail
+    """
+    model = Product
+    template_name = 'product_detail.html'
+    context_object_name = 'product'

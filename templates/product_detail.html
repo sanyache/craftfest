@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load event_extras %}
+{% block content %}
+
+    <div class="product-detail">
+        <div class="card">
+            <div class="imgBox feature-inner">
+                <a href="{{ product.gallery.title_image.url }}" class="preview lightbox">
+                    <img src="{{ product.gallery.title_image_avatar.url }}">
+                </a>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2>
+                        {{ product.name }}  {{ product.price }}
+                    </h2>
+                </div>
+                <div class="description">
+                    <p>{{ product.description }}</p>
+                </div>
+                <div class="master">
+                    <a href="{% url 'master_detail' product.master.id %}">
+                        <h4>{{ product.master }} тел. {{ product.master.phone }}</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="product-photos">
+            {% for img in product.gallery.photos.all %}
+            <a href="{{ img.image_big.url }}" class="preview lightbox"
+               data-lightbox-gallery='product'>
+                <img src="{{ img.image_avatar.url }}">
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
