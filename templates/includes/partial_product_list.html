@@ -1,0 +1,46 @@
+{% load static %}
+{% load event_extras %}
+{% for category in categories %}
+  <div class="col-md-12 col-sm-12 col-xs-12 category">
+    <h2>{{ category.name }}</h2>
+  </div>
+  {% for product in products|in_category:category %}
+  <div class="card">
+    <div class="imgBox feature-inner">
+       <a class="preview lightbox"
+          href="{{ product.gallery.title_image.url }}">
+         <img src="{{ product.gallery.title_image_avatar.url }}">
+       </a>
+    </div>
+    <div class="content">
+        <div class="price">
+            <img src="{% static 'assets/img/1.png' %}">
+            <span>{{ product.price }}</span>
+        </div>
+        <div class="title">
+            <h3 class="post-title">
+              <a href="">{{ product.name }}</a>
+            </h3>
+        </div>
+        <div class="meta">
+          <span class="meta-part">
+              <a href="#"><i class="icon-user"></i>{{ product.master }}</a>
+          </span>
+          <span  class="meta-part">
+            <a href="#"><i class="icon-calendar"></i>
+              {{ product.created }}
+            </a>
+          </span>
+        </div>
+        <div class="description">
+            <p>{{ product.short_description }}</p>
+
+        </div>
+        <div>
+            <a class="btn btn-common btn-small"
+               href="">Переглянути ...</a>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endfor %}

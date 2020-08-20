@@ -186,8 +186,6 @@
     var link = location.href;
     var num_pages = $('#load-more').data('pages');
     var page = $('#load-more').data('page');
-    console.log('page', page);
-    console.log('pages', num_pages);
     page += 1;
     $('#load-more').data('page', page);
     if( page <= num_pages){
@@ -206,6 +204,18 @@
     if( page == num_pages ){
       $(this).hide();
   }
+});
+$(document).on('click', 'a.load-page', function(event){
+  event.preventDefault();
+  var link = $(this).attr('href');
+  $.ajax({
+    'url': link,
+    'dataType': 'json',
+    'type': 'get',
+    'success': function(data, status, xhr){
+      $('#product_list').html(data.html_form);
+    }
+  });
 });
 
     

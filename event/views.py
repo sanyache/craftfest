@@ -2,7 +2,8 @@ from django.shortcuts import reverse
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
+from django.template.loader import render_to_string
 from django.db.models import Q
 from .models import *
 from .utils import paginate
@@ -29,6 +30,20 @@ def contact_admin(request):
     return HttpResponseRedirect(reverse('index'))
 
 
+def get_shot_product_list():
+
+    categories = CategoryProduct.objects.all()
+    products = []
+    for category in categories:
+        product_id = [i.id for i in Product.objects.filter(is_active=True, category=category)]
+        random.shuffle(product_id)
+        for id in product_id[:3]:
+            products.append(id)
+    product_list = Product.objects.filter(id__in=products).select_related('master', 'gallery', 
+                                                                          'category')
+    return product_list
+
+
 def index(request):
     sliders = Slider.objects.all()
     schedule = Schedule.objects.all().order_by('time')
@@ -37,7 +52,7 @@ def index(request):
     gallery_list = list(gallery.photos.all())
     random.shuffle(gallery_list)
     gallery_list = gallery_list[:12]
-    masters = list(Master.objects.all())[:6]
+    masters = list(Master.objects.all())
     random.shuffle(masters)
     masters = masters[:6]
     sponsors = Sponsor.objects.all()
@@ -162,6 +177,25 @@ class ProductList(ListView):
     class for rendering product list
     """
     model = Product
-    queryset = Product.objects.filter(is_active=True)
+    queryset = get_shot_product_list()
+    # Product.objects.filter(is_active=True).select_related('master', 'gallery',
+    #                                                                  'category')
     template_name = 'product_list.html'
     context_object_name = 'products'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ProductList, self).get_context_data(object_list=None, **kwargs)
+        categories = CategoryProduct.objects.all()
+        context['categories'] = categories
+        return context
+
+
+def product_list_by_category(request, pk):
+
+    category = get_object_or_404(CategoryProduct, id=pk)
+    categories = [category]
+    products = Product.objects.filter(is_active=True, category=category)
+    context = {'products': products, 'categories': categories}
+    data = dict()
+    data['html_form'] = render_to_string('includes/partial_product_list.html', context, request)
+    return JsonResponse(data)
