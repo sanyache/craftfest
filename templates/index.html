@@ -25,8 +25,8 @@
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.2s">
             <div class="text">
-              <h2>Ярмарок <br>Крафтових виробів</h2>
-              <h4>{{ event.place }} <br> До старту нового фесту залишилося ...</h4>
+              <h2>{{ event.title }}</h2>
+              <h4>До старту залишилося ...</h4>
             </div>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInRight" data-wow-delay="0.2s">
@@ -41,21 +41,13 @@
       </div>
     </section>
     <!-- Coundown Section End -->
-
-    <!-- Welocme Event Start -->
-    <section id="event" class="section">
-      <img src="{% static 'assets/img/background/bg-1.jpg' %}">
-
-    </section>
-    <!-- Welocme Event End -->
-
     <!-- Featured Section Start -->
     <section id="featured" class="section">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Чому варто приєднатися
-              до нас?</h2>
+            <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Чому варто стати
+              учасником  Ярмарку крафтових виробів?</h2>
               <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Завітавши на наш
                 Ярмарок ви матимете чудову нагоду провести час всією родиною,<br>
                 зможете придбати крафтові вироби, скуштувати смачні страви місцевої кухні,
@@ -81,7 +73,7 @@
                     <i class="icon-people"></i>
                   </div>
                   <div class="featured-content">
-                    <h4>Зустріти однодумців</h4>
+                    <h4>Продвинути власний бренд</h4>
                     <p>Ярмарок- це чудова нагода зустріти людей, для яких улюблене ремесло стало
                     частиною життя!</p>
                   </div>
@@ -150,184 +142,49 @@
     </section>
     <!-- Featured Section End -->
 
-    <!-- Main Slider Section Start -->
-    <div id="carousel-area">
-      <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+    <!-- Welocme Event Start -->
+    <section id="event" class="section">
+      <img src="{% static 'assets/img/background/bg-1.jpg' %}">
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          {% for slider in sliders %}
-          {% if forloop.counter == 1 %}
-            <div class="item active">
-            {% else %}
-            <div class="item">
-            {% endif %}
-            <img src="{{ slider.slider_image.url }}" alt="">
-            <div class="carousel-caption">
-              <h2 class="wow fadeInRight" data-wow-delay="300ms">{{ slider.title }} </h2>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-slider" role="button" data-slide="prev">
-          <span class="icon-arrow-left" aria-hidden="true"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-slider" role="button" data-slide="next">
-          <span class="icon-arrow-right" aria-hidden="true"></span>
-        </a>
-      </div>
-    </div>
-    <!-- Main Slider Section End -->
-
-
-    <!-- Schedule Section Start -->
-    <section id="schedule" class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-              <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Програма</h2>
-              <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">заходів
-                ярмару крафтових виробів.</p>
-              <!-- Schedule Main board Start-->
-              <div class="main-board wow fadeInDown pages" data-wow-delay="0.3s">
-                <!-- Nav tabs -->
-
-                <!-- Tab content Start -->
-                <div class="tab-content items">
-                  <!-- Day 1 Start -->
-                  {% for act in schedule.page_obj %}
-                  {% if forloop.counter == 1 %}
-                    <div role="tabpanel"
-                         class="tab-pane active"
-                         id="day{{ forloop.counter0|add:schedule.page_obj.start_index }}">
-                    {% else %}
-                    <div role="tabpanel"
-                         class="tab-pane"
-                         id="day{{ forloop.counter0|add:schedule.page_obj.start_index }}">
-                    {% endif %}
-                    <div class="row">
-                      <div class="col-md-12 board text-center">
-                        <div class="column-1 col-md-3 col-sm-5">
-                          <ul class="nav nav-pills event-time-list">
-                            <li><h2>Час</h2>
-                              {% if schedule.page_obj.has_previous %}
-                              <a
-                                 class="previous"
-                                 href="?page={{ schedule.page_obj.previous_page_number }}">
-                                <div class="icon">
-                                  <i class="icon-arrow-up" style="font-size: 81px;"></i>
-                                </div>
-                              </a>
-                              {% endif %}
-                              <ul class="schedule" id="time" data-page="{{ schedule.page_obj.number }}"
-                                data-pages="{{schedule.num_pages}}">
-                                {% for t in schedule.page_obj %}
-                                <li class="color-{{ forloop.counter }}">
-                                  <a
-                                     href="day{{ forloop.counter0|add:schedule.page_obj.start_index }}">
-                                    {{ t.time }}<br>{{ t.short_description }}
-                                  </a></li>
-                                {% endfor %}
-                              </ul>
-                              {% if schedule.page_obj.has_next %}
-                              <a
-                                class="next"
-                                href="?page={{ schedule.page_obj.next_page_number }}">
-                                <div class="icon">
-                                  <i class="icon-arrow-down" style="font-size: 81px;"></i>
-                                </div>
-                              </a>
-                              {% endif %}
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-md-8 col-sm-6">
-                          <div class="member" >
-                          <div class="button">
-                            <a href="#" class="btn-large bg-{{ forloop.counter }}">
-                              <img src="{% static 'assets/img/microphone.png' %}">
-                              {{act.short_description }}
-                            </a>
-                          </div>                             
-                            <h4>{{ act.description }}</h4>
-                          </div>
-                        </div>
-                      </div>                     
-                    </div>
-                  </div>
-                    <!-- Day 1 End -->
-                  {% endfor %}
-                </div>
-                <!-- Tab content Start -->
-              </div>
-              <!-- Schedule Main board End-->
-          </div>
-        </div>
-      </div>
-      </div>
     </section>
-    <!-- Schedule Section End -->
+    <!-- Welocme Event End -->
 
-    <!-- Sponsors Section Start -->
-    <section id="sponsors" class="section">
+    <!-- Product Section Start -->
+    <section id="" class="section">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Наші спонсори</h2>
-            <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Дякуємо нашим
-              спонсорам і меценатам за підтримку місцевих виробників. Долучайтеся до нашого
-              проекту!</p>
-          </div>
-          {% for sponsor in sponsors %}
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
-              <a {% if sponsor.site %}
-                   href="{{ sponsor.site }}"
-                 {% else %}
-                   href="#"
-                 {% endif %} >
-                <img src="{{ sponsor.image_avatar.url }}" alt="">
-              </a>
-            </div>            
-          </div>
-          {% endfor %}
-      </div>
-    </section>
-    <!-- Sponsors Section End --> 
-
-    <!-- Gallery Section Start -->
-    <section id="gallery" class="section">
-      <div class="container">        
         <div class="col-md-12">
-          <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Галерея</h2>
-          <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Ярмарок - захоплює!
-            Ярмарок - надихає! Ярмарок - це те місце, куди хочеться знову повернутися!</p>
-        </div>  
+          <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Каталог крафтових виробів
+            та продуктів</h2>
+          <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Ви можете придбати
+            унікальні речі з нашої платформи</p>
+        </div>
         <div class="gallery-wrap wow fadeInDown">
-            {% for img in gallery_list %}
+            {% for product in products %}
             <div class="gallery-item col-md-4 col-sm-4 col-xs-12">
-              <a href="{{ img.image_big.url }}"><img src="{{ img.image_avatar.url }}"></a>
+              <a href="{{ product.gallery.title_image.url }}">
+                <img src="{{ product.gallery.title_image_avatar.url }}">
+              </a>
               <div class="overlay">
                 <div class="icons">
                   <a class="preview lightbox"
-                     href="{{ img.image_big.url }}" data-lightbox-gallery="fest"><i class="icon-eye"></i></a>
-                  <a class="link" href="{% url 'gallery_list' %}"><i class="icon-link"></i></a>
+                     href="{{ product.gallery.title_image.url  }}"
+                     data-lightbox-gallery="product">
+                     <i class="icon-eye"></i>
+                  </a>
+                  <a class="link"
+                     href="{% url 'product_detail' product.id %}"><i class="icon-link"></i></a>
                 </div>
               </div>
             </div>
             {% endfor %}
-
           <div class="more-btn">
-            <a href="{% url 'gallery_list' %}" class="btn btn-common wow fadeInUp"
+            <a href="{% url 'product_list' %}" class="btn btn-common wow fadeInUp"
                data-wow-delay="0.3s">Дізнатися більше</a>
-          </div>    
+          </div>
         </div>
       </div>
     </section>
-    <!-- Gallery Section End -->
-
+    <!-- Product Section End -->
     <!-- Team Area Section Start -->
     <section id="team" class="section gray-bg">
       <div class="container">
@@ -377,6 +234,159 @@
         </div>
       </div>
     </section>
+    <!-- Schedule Section Start -->
+    <section id="schedule" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+              <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Подія</h2>
+              <h3>{{ event.title }}<br/></h3>
+              <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">
+                {{ event.place }}<br>{{ event.time }}
+              </p>
+              <h3>Програма</h3>
+              <!-- Schedule Main board Start-->
+              <div class="main-board wow fadeInDown pages" data-wow-delay="0.3s">
+                <!-- Nav tabs -->
+
+                <!-- Tab content Start -->
+                <div class="tab-content items">
+                  <!-- Day 1 Start -->
+                  {% for act in schedule.page_obj %}
+                  {% if forloop.counter == 1 %}
+                    <div role="tabpanel"
+                         class="tab-pane active"
+                         id="day{{ forloop.counter0|add:schedule.page_obj.start_index }}">
+                    {% else %}
+                    <div role="tabpanel"
+                         class="tab-pane"
+                         id="day{{ forloop.counter0|add:schedule.page_obj.start_index }}">
+                    {% endif %}
+                    <div class="row">
+                      <div class="col-md-12 board text-center">
+                        <div class="column-1 col-md-3 col-sm-5">
+                          <ul class="nav nav-pills event-time-list">
+                            <li><h3>Час</h3>
+                              {% if schedule.page_obj.has_previous %}
+                              <a
+                                 class="previous"
+                                 href="?page={{ schedule.page_obj.previous_page_number }}">
+                                <div class="icon">
+                                  <i class="icon-arrow-up" style="font-size: 81px;"></i>
+                                </div>
+                              </a>
+                              {% endif %}
+                              <ul class="schedule" id="time" data-page="{{ schedule.page_obj.number }}"
+                                data-pages="{{schedule.num_pages}}">
+                                {% for t in schedule.page_obj %}
+                                <li class="color-{{ forloop.counter }}">
+                                  <a
+                                     href="day{{ forloop.counter0|add:schedule.page_obj.start_index }}">
+                                    {{ t.time }}<br>{{ t.short_description }}
+                                  </a></li>
+                                {% endfor %}
+                              </ul>
+                              {% if schedule.page_obj.has_next %}
+                              <a
+                                class="next"
+                                href="?page={{ schedule.page_obj.next_page_number }}">
+                                <div class="icon">
+                                  <i class="icon-arrow-down" style="font-size: 81px;"></i>
+                                </div>
+                              </a>
+                              {% endif %}
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-md-8 col-sm-6">
+                          <div class="member" >
+                          <div class="button">
+                            <a href="#" class="btn-large bg-{{ forloop.counter }}">
+                              <img src="{% static 'assets/img/microphone.png' %}">
+                              {{act.short_description }}
+                            </a>
+                          </div>
+                            <h4>{{ act.description }}</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <!-- Day 1 End -->
+                  {% endfor %}
+                </div>
+                <!-- Tab content Start -->
+              </div>
+              <!-- Schedule Main board End-->
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- Schedule Section End -->
+    <!-- Main Slider Section Start -->
+    <!--<div id="carousel-area">-->
+      <!--<div id="carousel-slider" class="carousel slide" data-ride="carousel">-->
+
+        <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+        <!--<div class="carousel-inner" role="listbox">-->
+          <!--{% for slider in sliders %}-->
+          <!--{% if forloop.counter == 1 %}-->
+            <!--<div class="item active">-->
+            <!--{% else %}-->
+            <!--<div class="item">-->
+            <!--{% endif %}-->
+            <!--<img src="{{ slider.slider_image.url }}" alt="">-->
+            <!--<div class="carousel-caption">-->
+              <!--<h2 class="wow fadeInRight" data-wow-delay="300ms">{{ slider.title }} </h2>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--{% endfor %}-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Controls &ndash;&gt;-->
+        <!--<a class="left carousel-control" href="#carousel-slider" role="button" data-slide="prev">-->
+          <!--<span class="icon-arrow-left" aria-hidden="true"></span>-->
+        <!--</a>-->
+        <!--<a class="right carousel-control" href="#carousel-slider" role="button" data-slide="next">-->
+          <!--<span class="icon-arrow-right" aria-hidden="true"></span>-->
+        <!--</a>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!-- Main Slider Section End -->
+
+    <!-- Gallery Section Start -->
+    <section id="gallery" class="section">
+      <div class="container">        
+        <div class="col-md-12">
+          <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Галерея</h2>
+          <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Ярмарок - захоплює!
+            Ярмарок - надихає! Ярмарок - це те місце, куди хочеться знову повернутися!</p>
+        </div>  
+        <div class="gallery-wrap wow fadeInDown">
+            {% for img in gallery_list %}
+            <div class="gallery-item col-md-4 col-sm-4 col-xs-12">
+              <a href="{{ img.image_big.url }}"><img src="{{ img.image_avatar.url }}"></a>
+              <div class="overlay">
+                <div class="icons">
+                  <a class="preview lightbox"
+                     href="{{ img.image_big.url }}" data-lightbox-gallery="fest"><i class="icon-eye"></i></a>
+                  <a class="link" href="{% url 'gallery_list' %}"><i class="icon-link"></i></a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          <div class="more-btn">
+            <a href="{% url 'gallery_list' %}" class="btn btn-common wow fadeInUp"
+               data-wow-delay="0.3s">Дізнатися більше</a>
+          </div>    
+        </div>
+      </div>
+    </section>
+    <!-- Gallery Section End -->
+
+
 
     <!-- Blog Section Start -->
     <section id="blog" class="section">
@@ -417,7 +427,33 @@
       </div>
     </section>
     <!-- Blog Section End -->
-
+    <!-- Sponsors Section Start -->
+    <section id="sponsors" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Наші партнери</h2>
+            <p class="section-subcontent wow fadeInUp" data-wow-delay="0.2s">Дякуємо нашим
+              спонсорам і меценатам за підтримку місцевих виробників. Долучайтеся до нашого
+              проекту!</p>
+          </div>
+          {% for sponsor in sponsors %}
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="spnsors-logo wow fadeInUp" data-wow-delay="0.1s">
+              <a {% if sponsor.site %}
+                   href="{{ sponsor.site }}"
+                 {% else %}
+                   href="#"
+                 {% endif %} >
+                <img src="{{ sponsor.image_avatar.url }}" alt="">
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- Sponsors Section End -->
 
 
     <!-- Map Section Start -->

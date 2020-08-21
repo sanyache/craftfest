@@ -51,16 +51,20 @@ def index(request):
     gallery = Gallery.objects.filter(is_title=True).latest('created')
     gallery_list = list(gallery.photos.all())
     random.shuffle(gallery_list)
-    gallery_list = gallery_list[:12]
+    gallery_list = gallery_list[:9]
     masters = list(Master.objects.all())
     random.shuffle(masters)
     masters = masters[:6]
+    products = list(get_shot_product_list())
+    random.shuffle(products)
+    products = products[:9]
     sponsors = Sponsor.objects.all()
     articles = Article.objects.filter(is_approve=True).order_by('-created')[:3]
     event = Event.objects.filter(is_active=True).order_by('-time').last()
     return render(request, 'index.html', {'sliders': sliders,
                                           'schedule': schedule_paginate,
                                           'gallery_list': gallery_list,
+                                          'products': products,
                                           'masters': masters,
                                           'sponsors': sponsors,
                                           'articles': articles,

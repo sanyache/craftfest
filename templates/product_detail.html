@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extrameta %}
+    <meta property="og:title" content="{{ product.name }}">
+	<meta property="og:description" content="{{ product.short_description }}">
+	{% if article.image %}
+	<meta property="og:image" content="{{ product.gallery.title_image_avatar.url }}">
+	{% else %}
+	<meta property="og:image" content="{% static 'assets/css/logo1.png' %}">
+	{% endif %}
+	<meta property="og:url" content="{% url 'product_detail' product.id %}">
+	<meta property="og:site_name" content="Крафт fest'">
+{% endblock extrameta %}
 {% load event_extras %}
 {% block content %}
 
@@ -13,7 +24,7 @@
             <div class="content">
                 <div class="title">
                     <h2>
-                        {{ product.name }}  {{ product.price }}
+                        {{ product.name }} - {{ product.price }} грн.
                     </h2>
                 </div>
                 <div class="description">
@@ -26,6 +37,7 @@
                 </div>
             </div>
         </div>
+        {% if product.gallery.photos %}
         <div class="product-photos">
             {% for img in product.gallery.photos.all %}
             <a href="{{ img.image_big.url }}" class="preview lightbox"
@@ -33,6 +45,21 @@
                 <img src="{{ img.image_avatar.url }}">
             </a>
             {% endfor %}
+        </div>
+        {% endif %}
+        <!-- Share social -->
+        <div class="share">
+          <div class="social-link" id="social">
+            <span>Поширити через </span>
+            <a class="facebook"
+               target="_blank"
+               data-original-title="facebook"
+               href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}"
+               data-toggle="tooltip"
+               data-placement="top">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </div>
         </div>
     </div>
 {% endblock content %}

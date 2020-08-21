@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extrameta %}
+    <meta property="og:title" content="{{ article.title }}">
+	<meta property="og:description" content="{{ article.description }}">
+	{% if article.image %}
+	<meta property="og:image" content="{{ article.image_avatar.url }}">
+	{% else %}
+	<meta property="og:image" content="{% static 'assets/css/logo1.png' %}">
+	{% endif %}
+	<meta property="og:url" content="{% url 'article_detail' article.id %}">
+	<meta property="og:site_name" content="Крафт fest'">
+{% endblock extrameta %}
 {% block content %}
 
 
