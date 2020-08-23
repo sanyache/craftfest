@@ -30,7 +30,7 @@ def contact_admin(request):
     return HttpResponseRedirect(reverse('index'))
 
 
-def get_shot_product_list():
+def get_short_product_list():
 
     categories = CategoryProduct.objects.all()
     products = []
@@ -55,7 +55,7 @@ def index(request):
     masters = list(Master.objects.all())
     random.shuffle(masters)
     masters = masters[:6]
-    products = list(get_shot_product_list())
+    products = list(get_short_product_list())
     random.shuffle(products)
     products = products[:9]
     sponsors = Sponsor.objects.all()
@@ -95,6 +95,11 @@ class ScheduleList(ListView):
     queryset = Schedule.objects.all().order_by('time')
     context_object_name = 'schedule'
     template_name = 'schedule.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ScheduleList, self).get_context_data(object_list=None, **kwargs)
+        context['event'] = Event.objects.filter(is_active=True).order_by('-time').last()
+        return context
 
 
 class GalleryList(ListView):
@@ -181,7 +186,7 @@ class ProductList(ListView):
     class for rendering product list
     """
     model = Product
-    queryset = get_shot_product_list()
+    queryset = get_short_product_list()
     # Product.objects.filter(is_active=True).select_related('master', 'gallery',
     #                                                                  'category')
     template_name = 'product_list.html'
@@ -198,8 +203,9 @@ def product_list_by_category(request, pk):
 
     category = get_object_or_404(CategoryProduct, id=pk)
     categories = [category]
-    products = Product.objects.filter(is_active=True, category=category)
-    context = {'products': products, 'categories': categories}
+    products = Product.objects.filter(is_active=True, category=category).order_by('-created')
+    context = paginate(products, 12, request, {}, var_name='products')
+    context['categories'] = categories
     data = dict()
     data['html_form'] = render_to_string('includes/partial_product_list.html', context, request)
     return JsonResponse(data)

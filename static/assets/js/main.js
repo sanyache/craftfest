@@ -205,6 +205,31 @@
       $(this).hide();
   }
 });
+$(document).on('click', 'a.load-more-product',function(event){
+  event.preventDefault();
+  var category = $('#category').data('category');
+  var link = '/product_by_category/' + category + '?page=';
+  var num_pages = $('#load-more-product').data('pages');
+  var page = $('#load-more-product').data('page');
+  page += 1;
+  $('#load-more-product').data('page', page);
+  if( page <= num_pages){
+      link =  link+ page;
+          $.ajax({
+          'url': link,
+          'dataType': 'json',
+          'type': 'get',
+          'success': function(data, status, xhr){ 
+              html = $(data.html_form).find('.card');
+              $('.items').append(html);
+          
+          }
+      });
+  }
+  if( page == num_pages ){
+    $(this).hide();
+}
+});
 $(document).on('click', 'a.load-page', function(event){
   event.preventDefault();
   var link = $(this).attr('href');
@@ -213,7 +238,7 @@ $(document).on('click', 'a.load-page', function(event){
     'dataType': 'json',
     'type': 'get',
     'success': function(data, status, xhr){
-      $('#product_list').html(data.html_form);
+      $('#product_list').html(data.html_form);  
     }
   });
 });

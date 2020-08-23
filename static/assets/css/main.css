@@ -705,6 +705,7 @@ fieldset[disabled] .btn {
   justify-content: center;
   align-items: center;
   background: url(../img/background/sky-bg.jpg);
+  background-repeat: no-repeat;
   height: 55%;
 }
 #sky .container
@@ -1093,8 +1094,14 @@ fieldset[disabled] .btn {
 .product section
 {
   margin-left: 250px;
-  display: flex;
 
+}
+.product section .items
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .product section .product-list
 {
@@ -1103,6 +1110,7 @@ fieldset[disabled] .btn {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 .product section .product-list .card
 {
@@ -2047,7 +2055,7 @@ h1 {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-#contact .social a .fa-linkedin:hover {
+#contact .social a .fa-facebook:hover {
   color: #007bb6;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
