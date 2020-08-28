@@ -19,4 +19,5 @@ urlpatterns = [
     path('product_by_category/<int:pk>', product_list_by_category, name='product_by_category'),
     path('product_detail/<int:pk>', ProductDetail.as_view(), name='product_detail'),
     path('search_master_typeahead', SearchMasterTypeahead.as_view(), name='search_master_typeahead'),
+    path('product_list_by_master', product_list_by_master, name='product_list_by_master'),
 ]

@@ -21,4 +21,10 @@ var searchMaster = new Bloodhound({
       empty: 'Не має в базі',
     }
   });
+  $('#search_form').submit(function(e) {
+    $.get('/product_list_by_master', $(this).serialize(), function(data) {
+        $('#product_list').html(data.html_form);
+    });
+    e.preventDefault();
+  });
   
