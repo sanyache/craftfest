@@ -8,18 +8,17 @@
           <img src="{% static 'assets/css/logo1.png' %}">
         </div>
         <div class="content">
-          <h2>Крафт fest</h2>
-          <p>c. Войнівка Приютівська ОТГ</p><br/>
-          <div class="slogan">
-            <p>Ярмарок крафтових виробів - </p>
-            <br/>
-            <p >скарбниця українських майстрів!</p>
+          <h2>Крафт</h2> <br/>
+          <div class="fest"><h2>fest</h2>
           </div>
+
+          <p>c. Войнівка Приютівська ОТГ</p>
         </div>
       </div>
     </section>
 
     <!-- Coundown Section Start -->
+    {% if not event %}
     <section class="countdown-timer section">
       <div class="container">
         <div class="row">
@@ -41,6 +40,7 @@
       </div>
     </section>
     <!-- Coundown Section End -->
+    {% endif %}
     <!-- Featured Section Start -->
     <section id="featured" class="section">
       <div class="container">
@@ -149,14 +149,15 @@
     <!-- Featured Section End -->
 
     <!-- Welocme Event Start -->
-    <section id="event" class="section">
-      <img src="{% static 'assets/img/background/bg-1.jpg' %}">
+    <!--<section id="event" class="section">-->
+      <!--<img src="{% static 'assets/img/background/bg-1.jpg' %}">-->
 
-    </section>
+    <!--</section>-->
     <!-- Welocme Event End -->
 
     <!-- Product Section Start -->
-    <section id="" class="section">
+    {% if products %}
+    <section class="section">
       <div class="container">
         <div class="col-md-12">
           <h2 class="section-title wow fadeInUp" data-wow-delay="0s">Каталог крафтових виробів
@@ -190,8 +191,10 @@
         </div>
       </div>
     </section>
+    {% endif %}
     <!-- Product Section End -->
     <!-- Team Area Section Start -->
+    {% if masters %}
     <section id="team" class="section gray-bg">
       <div class="container">
         <div class="row">
@@ -240,7 +243,9 @@
         </div>
       </div>
     </section>
+    {% endif %}
     <!-- Schedule Section Start -->
+    {% if not schedule %}
     <section id="schedule" class="section">
       <div class="container">
         <div class="row">
@@ -329,6 +334,7 @@
       </div>
       </div>
     </section>
+    {% endif %}
     <!-- Schedule Section End -->
     <!-- Main Slider Section Start -->
     <!--<div id="carousel-area">-->
@@ -395,6 +401,7 @@
 
 
     <!-- Blog Section Start -->
+    {% if articles %}
     <section id="blog" class="section">
       <div class="container">
         <div class="row">
@@ -432,8 +439,10 @@
         </div>
       </div>
     </section>
+    {% endif %}
     <!-- Blog Section End -->
     <!-- Sponsors Section Start -->
+    {% if not sponsors %}
     <section id="sponsors" class="section">
       <div class="container">
         <div class="row">
@@ -459,6 +468,7 @@
         </div>
       </div>
     </section>
+    {% endif %}
     <!-- Sponsors Section End -->
 
 
@@ -573,7 +583,11 @@
                 </div>
               </div>
               <div class="social text-center">
-                <a class="social" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="social"
+                   href="https://www.facebook.com/%D0%AF%D1%80%D0%BC%D0%B0%D1%80%D0%BE%D0%BA-%D0%BA%D1%80%D0%B0%D1%84%D1%82%D0%BE%D0%B2%D0%B8%D1%85-%D0%B2%D0%B8%D1%80%D0%BE%D0%B1%D1%96%D0%B2-108264241001540"
+                   target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
               </div>
           </div>
         </div>

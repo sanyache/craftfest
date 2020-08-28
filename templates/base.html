@@ -48,7 +48,7 @@
       <!-- Roof area Starts -->
       <div id="roof" class="hidden-xs">
           <div class="container">
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-3 col-sm-3">
               <div class="info-bar-address">
                  <i class="icon-location-pin"></i> c.Войнівка Приютівська ОТГ
               </div>
@@ -61,6 +61,8 @@
               </div>
               <!-- Quick Contacts End -->
             </div>
+            <div class="col-md-3 col-sm-3" id="google_translate_element">
+            </div>
           </div>
       </div>
       <!-- Roof area End -->
@@ -68,10 +70,12 @@
       <!-- Nav Menu Section Start -->
       <div class="navigation-menu">
         <nav class="navbar navbar-default navbar-event" >
+          {% if request.path != '/product_list' %}
           <a class="navbar-brand"
-                 href="{% url 'index' %}">
-                <img src="{% static 'assets/img/pryiutivka-logo.png' %}">
-              </a>
+             href="{% url 'index' %}">
+            <img src="{% static 'assets/img/pryiutivka-logo.png' %}">
+          </a>
+          {% endif %}
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header col-md-2">
@@ -87,21 +91,12 @@
             <div class="collapse navbar-collapse" id="navbar">
               <ul class="nav navbar-nav navbar-right" id="navbar-right">
                 <li class=""><a href="{% url 'index' %} ">Головна</a></li>
-                <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Pages <span class="caret"></span></a>-->
-                   <!--<ul class="dropdown-menu">-->
-                    <!--<li><a href="about.html">Про нас</a></li>-->
-                    <!--<li><a href="gallery.html">Галерея</a></li>-->
-                    <!--<li><a href="pricing.html">Pricing Table</a></li>-->
-                    <!--<li><a href="sponsors.html">Sponsors</a></li>-->
-                    <!--<li><a href="single-post.html"></a></li>-->
-                  <!--</ul>-->
-                <!--</li>                -->
                 <li><a href="{% url 'about_us' %}">Про нас</a></li>
                 <li><a href="{% url 'product_list' %}">Продукція</a></li>
                 <li><a href="{% url 'gallery_list' %}">Галерея</a></li>
                 <li><a href="{% url 'master_list' %}">Майстри</a></li>
                 <li><a href="{% url 'article_list' %}">Статті</a></li>
-                <li><a href="{% url 'schedule_list' %}">Програма</a></li>
+                <li><a href="{% url 'schedule_list' %}">Подія</a></li>
                 <li><a href="{%  url 'contact' %}">Контакти</a></li>
               </ul>
             </div><!-- /navbar-collapse -->
@@ -110,15 +105,6 @@
           <!-- Mobile Menu Start -->
           <ul class="wpb-mobile-menu">
             <li class=""><a href="{% url 'index' %} ">Головна</a></li>
-              <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Pages <span class="caret"></span></a>-->
-                 <!--<ul class="dropdown-menu">-->
-                  <!--<li><a href="about.html">Про нас</a></li>-->
-                  <!--<li><a href="gallery.html">Галерея</a></li>-->
-                  <!--<li><a href="pricing.html">Pricing Table</a></li>-->
-                  <!--<li><a href="sponsors.html">Sponsors</a></li>-->
-                  <!--<li><a href="single-post.html"></a></li>-->
-                <!--</ul>-->
-              <!--</li>  -->
               <li><a href="{% url 'about_us' %}">Про нас</a></li>
               {% if request.path == '/product_list' %}
               <li class="dropdown">
@@ -142,7 +128,7 @@
               <li><a href="{% url 'gallery_list' %}">Галерея</a></li>
               <li><a href="{% url 'master_list' %}">Майстри</a></li>
               <li><a href="{% url 'article_list' %}">Статті</a></li>
-              <li><a href="{% url 'schedule_list' %}">Програма</a></li>
+              <li><a href="{% url 'schedule_list' %}">Подія</a></li>
               <li><a href="{%  url 'contact' %}">Контакти</a></li>
           </ul>
           <!-- Mobile Menu End -->
@@ -197,6 +183,18 @@
     <!-- Map JS -->
     <script type="text/javascript" src="{% static 'assets/js/jquery.mapit.min.js' %}"></script>
     <script src="{% static 'assets/js/initializers.js' %}"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+			pageLanguage: 'uk',
+			includedLanguages: 'de,en,es,fr,ru,pl',
+			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			gaTrack: true,
+			gaId: 'UA-71656986-1'
+		}, 'google_translate_element');
+      }
+    </script>
 
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

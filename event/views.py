@@ -39,8 +39,7 @@ def get_short_product_list():
         random.shuffle(product_id)
         for id in product_id[:3]:
             products.append(id)
-    product_list = Product.objects.filter(id__in=products).select_related('master', 'gallery',
-                                                                          'category')
+    product_list = Product.objects.filter(id__in=products).select_related('master', 'gallery')
     return product_list
 
 

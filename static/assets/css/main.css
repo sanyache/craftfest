@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Permanent+Marker:400,700|Roboto:400,500,700');
 /* ==========================================================================
    All Import File List
    ========================================================================== */
@@ -222,6 +222,11 @@ fieldset[disabled] .btn {
   color: #fff;
   font-size: 14px;
   background: #1ABBCB;
+}
+#roof .container
+{
+  display: flex;
+  align-items: center;
 }
 #roof .info-bar-address {
   font-size: 14px;
@@ -706,7 +711,7 @@ fieldset[disabled] .btn {
   align-items: center;
   background: url(../img/background/sky-bg.jpg);
   background-repeat: no-repeat;
-  height: 55%;
+  height: 400px;
 }
 #sky .container
 {
@@ -719,12 +724,12 @@ fieldset[disabled] .btn {
 }
 #sky .container .imgBox
 {
-  width: 40%;
+  width: 30%;
   margin-left: 20px;
 }
 #sky .container .imgBox img
 {
-  width: 90%;
+  width: 70%;
   height: auto;
 }
 #sky .container .content
@@ -732,8 +737,6 @@ fieldset[disabled] .btn {
   line-height: 30px;
   margin-top: 20px;
   margin-left: 80px;
-  background: url('../img/firework.png');
-  z-index: 1;
 }
 #sky .container .content h2
 {
@@ -741,26 +744,23 @@ fieldset[disabled] .btn {
   margin-right: 10px;
   color: #560099;
   margin-bottom: 6%;
-  font-family: 'Oswald', serif;
+  font-family: Permanent Marker;
   font-style: italic;
-  text-shadow: 2px 2px #111;
+  text-shadow: 2px 3px #111;
   text-decoration: underline;
   text-decoration-color: #007bb6;
+}
+#sky .container .content .fest
+{
+  text-align: right;
+  margin-top: -25%;
+
 }
 #sky .container .content p
 {
   font-size: 55px;
   font-family: 'Oswald', serif;
   color: #000099;
-}
-#sky .container .content .slogan
-{
-  margin-top: 250px;
-}
-#sky .container .content .slogan p
-{
-  font-size: 45px;
-  font-family: 'Oswald', serif;
 }
 @media (max-width: 991px)
 {
@@ -775,10 +775,6 @@ fieldset[disabled] .btn {
     #sky .container .content p
     {
       font-size: 35px;
-    }
-    #sky .container .content .slogan p
-    {
-      font-size: 30px;
     }
     #sky .container .imgBox
     {
@@ -809,11 +805,6 @@ fieldset[disabled] .btn {
     #sky .container .content p
     {
       font-size: 30px;
-      text-align: center;
-    }
-    #sky .container .content .slogan p
-    {
-      font-size: 25px;
       text-align: center;
     }
     #sky .container .imgBox
@@ -1252,7 +1243,7 @@ fieldset[disabled] .btn {
   }
   .product section .product-list .card
   {
-    width: 320px;
+    width: 370px;
   }
   .product-detail .card
   {
@@ -1511,6 +1502,7 @@ fieldset[disabled] .btn {
 }
 .more-btn .btn {
   margin-top: 30px;
+  margin-bottom: 10px;
 }
 .gallery-item {
   position: relative;
