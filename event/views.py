@@ -1,15 +1,16 @@
 from django.shortcuts import reverse
 from django.views.generic import ListView, DetailView
+from django.views import View
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.template.loader import render_to_string
 from django.db.models import Q
 from .models import *
 from .utils import paginate
 from craftfest.settings import ADMIN_EMAIL
 
-import random
+import random, json
 
 # Create your views here.
 
@@ -217,3 +218,16 @@ class ProductDetail(DetailView):
     model = Product
     template_name = 'product_detail.html'
     context_object_name = 'product'
+
+
+class SearchMasterTypeahead(View):
+
+    def get(self, request):
+        q = request.GET.get('q', '')
+        masters = Master.objects.filter(last_name__icontains= q)
+        name_list = []
+        for master in masters:
+            new = {'q': master.get_full_name()}
+            if not new in name_list:
+                name_list.append(new)
+        return HttpResponse(json.dumps(name_list), content_type="application/json")

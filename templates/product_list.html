@@ -37,6 +37,10 @@
                 </li>
                 {% endfor %}
             </ul>
+            <form class="input-name" id="search_form">
+              <input type="text" name="name" placeholder="прізвище чи ім'я" class="typeahead">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
         </div>
         <section>
           <div class="product-list" id="product_list">
@@ -44,4 +48,7 @@
           </div>
         </section>
     </div>
+{% block extra_js %}
+    <script type="text/javascript" src="{% static 'assets/js/search_typeahead.js' %}"></script>
+{% endblock extra_js %}
 {% endblock content %}
