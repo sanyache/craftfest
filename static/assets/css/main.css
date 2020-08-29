@@ -1048,7 +1048,7 @@ fieldset[disabled] .btn {
   top: 0px;
   z-index: 1;
   overflow: hidden;
-  width: 250px;
+  width: 300px;
   height: 100vh;
   background: #0099e6;
   transition: all .5s ease;
@@ -1082,9 +1082,29 @@ fieldset[disabled] .btn {
 {
     padding-left: 50px;
 }
+.product-sidebar .typeahead
+{
+  margin-top: 5px;
+  width: 250px;
+  height: 50px;
+  padding: 5px 6px;
+  font-size: 22px;
+  line-height: 30px;
+  border: 3px solid #ccc;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 1px;
+  outline: none;
+}
+.product-sidebar .input-name button
+{
+  margin-left: 5px;
+  margin-top: 3px;
+  height: 55px;
+}
 .product section
 {
-  margin-left: 250px;
+  margin-left: 300px;
 
 }
 .product section .items
@@ -1231,7 +1251,7 @@ fieldset[disabled] .btn {
 {
   .product-sidebar
   {
-    left: -250px;
+    left: -300px;
   }
   .product section
   {

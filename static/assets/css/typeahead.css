@@ -71,13 +71,13 @@ input-group.input-group-sm {
 
 .tt-highlight {
     /*color: rgba(0, 151, 207, 0.8);*/
-    color: #5bc0de;
+    color:  rgb(232,232,232);
 }
 
 .tt-suggestion:hover {
     cursor: pointer;
     color: #fff;
-    background-color: rgba(0, 151, 207, 0.8);
+    background-color: rgba(226, 234, 236, 0.8);
 }
 
 
