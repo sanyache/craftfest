@@ -7,7 +7,7 @@ var searchMaster = new Bloodhound({
       wildcard: '%QUERY'
     }
   });
-  $('#search_form .typeahead').typeahead({
+  $('.typeahead').typeahead({
     //hint:true,
     //highlight: true,
     //autoselect: true,
@@ -22,6 +22,12 @@ var searchMaster = new Bloodhound({
     }
   });
   $('#search_form').submit(function(e) {
+    $.get('/product_list_by_master', $(this).serialize(), function(data) {
+        $('#product_list').html(data.html_form);
+    });
+    e.preventDefault();
+  });
+  $('form.tp').submit(function(e) {
     $.get('/product_list_by_master', $(this).serialize(), function(data) {
         $('#product_list').html(data.html_form);
     });

@@ -212,7 +212,6 @@ def product_list_by_category(request, pk):
 
 
 def product_list_by_master(request):
-
     if request.GET.get('name'):
         name = request.GET.get('name')
         try:
@@ -221,14 +220,13 @@ def product_list_by_master(request):
                                            first_name__iexact=first_name).first()
         except:
             master = Master.objects.filter(last_name__iexact=name).first()
-        products = Product.objects.filter(master=master)
+        products = Product.objects.filter(master=master).order_by('-created')
         categories = master.category.all()
         context = paginate(products, 12, request, {}, var_name='products')
         context['categories'] = categories
-        print('context', context)
         data = dict()
         data['html_form'] = render_to_string('includes/partial_product_list.html', context, request)
-    return  JsonResponse(data)
+        return  JsonResponse(data)
 
 
 class ProductDetail(DetailView):
@@ -247,7 +245,6 @@ class SearchMasterTypeahead(View):
         masters = Master.objects.filter(last_name__icontains= q)
         name_list = []
         for master in masters:
-            new = {'q': master.get_full_name(), 'id': master.id}
-            if not new in name_list:
-                name_list.append(new)
+            new = {'q': master.get_full_name()}
+            name_list.append(new)
         return HttpResponse(json.dumps(name_list), content_type="application/json")
