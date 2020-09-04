@@ -3,32 +3,13 @@
 {% load event_extras %}
 {% block content %}
 
-    <!-- Page Header Start -->
-    <!--<div class="page-header">-->
-      <!--<div class="container">-->
-        <!--<div class="page-header-inner">-->
-          <!--<ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">-->
-            <!--<li><a href="{% url 'index' %}">Головна</a></li>-->
-            <!--<li class="page"><a href="{% url 'master_list' %}">Товари</a></li>-->
-          <!--</ol>-->
-          <!--<a href="{% url 'master_list' %}"><h1 class="page-title wow fadeInRight" data-wow-delay="300ms">-->
-              <!--Товари-->
-            <!--</h1>-->
-          <!--</a>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!-- Page Header End-->
-
     <!-- Side bar menu -->
     <div class="product">
         <div class="product-sidebar">
-            <header>
-                <a href="{% url 'product_list' %}">
-                    Всі категорії
-                </a>
-            </header>
             <ul>
+                <li><a href="{% url 'product_list' %}">
+                    Всі категорії
+                </a></li>
                 {% for category in categories %}
                 <li>
                     <a href="{% url 'product_by_category' category.id %}" class="load-page">

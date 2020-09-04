@@ -2,21 +2,10 @@
 {% load static %}
 {% block content %}
 
-    <section id="sky" class="section">
-      <div class="container">
-        <div class="imgBox">
-          <img src="{% static 'assets/css/logo1.png' %}">
-        </div>
-        <div class="content">
-          <h2>Крафт</h2> <br/>
-          <div class="fest"><h2>fest</h2>
-          </div>
+    <section class="banner">
+      <img src="{% static 'assets/img/background/kraft-fest.png' %}">
 
-          <p>c. Войнівка Приютівська ОТГ</p>
-        </div>
-      </div>
     </section>
-
     <!-- Coundown Section Start -->
     {% if not event %}
     <section class="countdown-timer section">
@@ -149,10 +138,10 @@
     <!-- Featured Section End -->
 
     <!-- Welocme Event Start -->
-    <!--<section id="event" class="section">-->
-      <!--<img src="{% static 'assets/img/background/bg-1.jpg' %}">-->
+    <section id="event" class="section">
+      <img src="{% static 'assets/img/background/bg-1.jpg' %}">
 
-    <!--</section>-->
+    </section>
     <!-- Welocme Event End -->
 
     <!-- Product Section Start -->
@@ -234,18 +223,19 @@
             </div>
           </div>
           {% endfor %}
-          <div class="more-btn">
+
+        </div>
+        </div>
+      </div>
+      <div class="more-btn">
             <a href="{% url 'master_list' %}"
                class="btn btn-common wow fadeInUp"
                data-wow-delay="0.3s">Дізнатися більше</a>
           </div>
-        </div>
-        </div>
-      </div>
     </section>
     {% endif %}
     <!-- Schedule Section Start -->
-    {% if not schedule %}
+    {% if schedule %}
     <section id="schedule" class="section">
       <div class="container">
         <div class="row">
@@ -336,36 +326,6 @@
     </section>
     {% endif %}
     <!-- Schedule Section End -->
-    <!-- Main Slider Section Start -->
-    <!--<div id="carousel-area">-->
-      <!--<div id="carousel-slider" class="carousel slide" data-ride="carousel">-->
-
-        <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
-        <!--<div class="carousel-inner" role="listbox">-->
-          <!--{% for slider in sliders %}-->
-          <!--{% if forloop.counter == 1 %}-->
-            <!--<div class="item active">-->
-            <!--{% else %}-->
-            <!--<div class="item">-->
-            <!--{% endif %}-->
-            <!--<img src="{{ slider.slider_image.url }}" alt="">-->
-            <!--<div class="carousel-caption">-->
-              <!--<h2 class="wow fadeInRight" data-wow-delay="300ms">{{ slider.title }} </h2>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--{% endfor %}-->
-        <!--</div>-->
-
-        <!--&lt;!&ndash; Controls &ndash;&gt;-->
-        <!--<a class="left carousel-control" href="#carousel-slider" role="button" data-slide="prev">-->
-          <!--<span class="icon-arrow-left" aria-hidden="true"></span>-->
-        <!--</a>-->
-        <!--<a class="right carousel-control" href="#carousel-slider" role="button" data-slide="next">-->
-          <!--<span class="icon-arrow-right" aria-hidden="true"></span>-->
-        <!--</a>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!-- Main Slider Section End -->
 
     <!-- Gallery Section Start -->
     <section id="gallery" class="section">
@@ -442,7 +402,7 @@
     {% endif %}
     <!-- Blog Section End -->
     <!-- Sponsors Section Start -->
-    {% if not sponsors %}
+    {% if sponsors %}
     <section id="sponsors" class="section">
       <div class="container">
         <div class="row">
