@@ -7,7 +7,7 @@
 
     </section>
     <!-- Coundown Section Start -->
-    {% if not event %}
+    {% if event %}
     <section class="countdown-timer section">
       <div class="container">
         <div class="row">
@@ -328,6 +328,7 @@
     <!-- Schedule Section End -->
 
     <!-- Gallery Section Start -->
+    {% if galleri_list %}
     <section id="gallery" class="section">
       <div class="container">        
         <div class="col-md-12">
@@ -356,6 +357,7 @@
         </div>
       </div>
     </section>
+    {% endif %}
     <!-- Gallery Section End -->
 
 
