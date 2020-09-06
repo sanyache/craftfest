@@ -186,9 +186,8 @@ class ProductList(ListView):
     class for rendering product list
     """
     model = Product
-    queryset = get_short_product_list()
-    # Product.objects.filter(is_active=True).select_related('master', 'gallery',
-    #                                                                  'category')
+    queryset = Product.objects.filter(is_active=True).select_related('master', 'gallery',
+                                                                     'category')
     template_name = 'product_list.html'
     context_object_name = 'products'
 
