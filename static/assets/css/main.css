@@ -2224,6 +2224,15 @@ h1 {
   display: block;
   margin-top: -38px;
 }
+@media (max-width: 768px)
+{
+  .main-content {
+    background: linear-gradient(to bottom,#111,transparent), url(../img/background/bg-2.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 95%;
+  }
+}  
 /* ==========================================================================
    Footer Start
    ========================================================================== */
