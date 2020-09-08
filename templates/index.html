@@ -129,9 +129,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -173,11 +170,11 @@
               </div>
             </div>
             {% endfor %}
-          <div class="more-btn">
-            <a href="{% url 'product_list' %}" class="btn btn-common wow fadeInUp"
-               data-wow-delay="0.3s">Дізнатися більше</a>
-          </div>
         </div>
+      </div>
+      <div class="more-btn">
+        <a href="{% url 'product_list' %}" class="btn btn-common wow fadeInUp"
+           data-wow-delay="0.3s">Дізнатися більше</a>
       </div>
     </section>
     {% endif %}
@@ -228,10 +225,10 @@
         </div>
       </div>
       <div class="more-btn">
-            <a href="{% url 'master_list' %}"
-               class="btn btn-common wow fadeInUp"
-               data-wow-delay="0.3s">Дізнатися більше</a>
-          </div>
+        <a href="{% url 'master_list' %}"
+           class="btn btn-common wow fadeInUp"
+           data-wow-delay="0.3s">Дізнатися більше</a>
+      </div>
     </section>
     {% endif %}
     <!-- Schedule Section Start -->
@@ -349,12 +346,11 @@
               </div>
             </div>
             {% endfor %}
-
-          <div class="more-btn">
-            <a href="{% url 'gallery_list' %}" class="btn btn-common wow fadeInUp"
-               data-wow-delay="0.3s">Дізнатися більше</a>
-          </div>    
         </div>
+      </div>
+      <div class="more-btn">
+        <a href="{% url 'gallery_list' %}" class="btn btn-common wow fadeInUp"
+           data-wow-delay="0.3s">Дізнатися більше</a>
       </div>
     </section>
     {% endif %}
@@ -392,13 +388,12 @@
             </div>
           </div>
           {% endfor %}
-
         </div>
-        <div class="more-btn">
-          <a href="{% url 'article_list' %}"
-             class="btn btn-common wow fadeInUp"
-             data-wow-delay="0.3s">Дізнатися більше</a>
-        </div>
+      </div>
+      <div class="more-btn">
+        <a href="{% url 'article_list' %}"
+           class="btn btn-common wow fadeInUp"
+           data-wow-delay="0.3s">Дізнатися більше</a>
       </div>
     </section>
     {% endif %}
@@ -465,7 +460,7 @@
           <div class="col-md-8 col-sm-7 contact-form">   
             <form action="{% url 'contact_admin' %}"
                   method="post"
-                  role="form" id="contactForm"
+                  id="contactForm"
                   data-toggle="validator">
               {% csrf_token %}
               <div class="title-header">

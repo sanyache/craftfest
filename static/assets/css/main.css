@@ -501,6 +501,7 @@ fieldset[disabled] .btn {
   }
   .navbar-brand img
   {
+    padding-top: 10px;
     width: 130px;
     height: 65px;
   }
@@ -717,118 +718,7 @@ fieldset[disabled] .btn {
 /* ==========================================================================
    Sky
    ========================================================================== */
-#sky
-{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url(../img/background/sky-bg.jpg);
-  background-repeat: no-repeat;
-  height: 400px;
-}
-#sky .container
-{
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: left;
-  /* align-items: center; */
-  flex-wrap: wrap;
-}
-#sky .container .imgBox
-{
-  width: 30%;
-  margin-left: 20px;
-}
-#sky .container .imgBox img
-{
-  width: 70%;
-  height: auto;
-}
-#sky .container .content
-{
-  line-height: 30px;
-  margin-top: 20px;
-  margin-left: 80px;
-}
-#sky .container .content h2
-{
-  font-size: 130px;
-  margin-right: 10px;
-  color: #560099;
-  margin-bottom: 6%;
-  font-family: Permanent Marker;
-  font-style: italic;
-  text-shadow: 2px 3px #111;
-  text-decoration: underline;
-  text-decoration-color: #007bb6;
-}
-#sky .container .content .fest
-{
-  text-align: right;
-  margin-top: -25%;
 
-}
-#sky .container .content p
-{
-  font-size: 55px;
-  font-family: 'Oswald', serif;
-  color: #000099;
-}
-@media (max-width: 991px)
-{
-    .sky .container
-    {
-        flex-direction: column;
-    }
-    #sky .container .content h2
-    {
-      font-size: 60px;
-    }
-    #sky .container .content p
-    {
-      font-size: 35px;
-    }
-    #sky .container .imgBox
-    {
-      width: 80%;
-    }
-    #sky .container .imgBox img
-    {
-      width: 90%;
-    }
-}
-@media (max-width: 768px)
-{
-    #sky
-    {
-        flex-direction: column;
-    }
-    #sky .container .content
-    {
-        flex-direction: column;
-        width: 90%;
-        margin-left: 5px;
-    }
-    #sky .container .content h2
-    {
-      font-size: 40px;
-      text-align: center;
-    }
-    #sky .container .content p
-    {
-      font-size: 30px;
-      text-align: center;
-    }
-    #sky .container .imgBox
-    {
-      width: 100%;
-    }
-    #sky .container .imgBox img
-    {
-      width: 100%;
-    }
-}
 .banner img
 {
  width: 100%;
@@ -1257,10 +1147,6 @@ fieldset[disabled] .btn {
 }
 @media (max-width: 991px)
 {
-  /* .product .product-sidebar
-  {
-    top: 160px;
-  } */
   .product-list
   {
       flex-direction: column;
