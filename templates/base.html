@@ -16,7 +16,7 @@
     <!-- Main Style -->
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
     <!-- Responsive Style -->
-    <!--<link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
     <!-- Fonts -->
     <link rel="stylesheet" type="text/css" href="{% static 'assets/fonts/font-awesome.min.css' %}">
     <!-- Icon -->
@@ -95,7 +95,7 @@
                 <li><a href="{% url 'gallery_list' %}">Галерея</a></li>
                 <li><a href="{% url 'master_list' %}">Майстри</a></li>
                 <li><a href="{% url 'article_list' %}">Статті</a></li>
-                <li><a href="{% url 'schedule_list' %}">Подія</a></li>
+                <li><a href="{% url 'schedule_list' %}">Поді</a></li>
                 <li><a href="{%  url 'contact' %}">Контакти</a></li>
               </ul>
             </div><!-- /navbar-collapse -->
@@ -104,14 +104,13 @@
           <!-- Mobile Menu Start -->
           <ul class="wpb-mobile-menu">
             <li class=""><a href="{% url 'index' %} ">Головна</a></li>
-              <li><a href="{% url 'about_us' %}">Про нас</a></li>
               {% if request.path == '/product_list' %}
               <li class="dropdown">
                 <a class="dropdown-toggle"
                    data-toggle="dropdown" href="{% url 'product_list' %}" >
-                  Продукція
+                  Продукція<span class="caret"></span>
                 </a>
-                 <ul class="dropdown-menu">
+                 <ul class="dropdown-menu open">
                    {% for category in categories %}
                     <li>
                         <a href="{% url 'product_by_category' category.id %}" class="load-page">
@@ -135,6 +134,7 @@
               <li><a href="{% url 'article_list' %}">Статті</a></li>
               <li><a href="{% url 'schedule_list' %}">Подія</a></li>
               <li><a href="{%  url 'contact' %}">Контакти</a></li>
+
           </ul>
           <!-- Mobile Menu End -->
 
@@ -184,7 +184,6 @@
     <!-- All Js plugin -->
     <script src="{% static 'assets/js/main.js' %}"></script>
     <!-- Map JS -->
-    <script type="text/javascript" src="{% static 'assets/js/jquery.mapit.min.js' %}"></script>
     <script src="{% static 'assets/js/initializers.js' %}"></script>
     <script type="text/javascript">
       function googleTranslateElementInit() {
