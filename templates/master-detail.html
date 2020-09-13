@@ -3,10 +3,10 @@
 {% block extrameta %}
     <meta property="og:title" content="{{ master.get_full_name }}">
 	<meta property="og:description" content="{{ master.short_description }}">
-	{% if article.image %}
+	{% if master.image %}
 	<meta property="og:image" content="{{ master.image_avatar.url  }}">
 	{% else %}
-	<meta property="og:image" content="{% static 'assets/css/logo1.png' %}">
+	<meta property="og:image" content="{% static 'assets/img/logo1.png' %}">
 	{% endif %}
 	<meta property="og:url" content="{% url 'master_detail' master.id %}">
 	<meta property="og:site_name" content="Крафт fest'">

@@ -6,7 +6,7 @@
 	{% if article.image %}
 	<meta property="og:image" content="{{ article.image_avatar.url }}">
 	{% else %}
-	<meta property="og:image" content="{% static 'assets/css/logo1.png' %}">
+	<meta property="og:image" content="{% static 'assets/img/logo1.png' %}">
 	{% endif %}
 	<meta property="og:url" content="{% url 'article_detail' article.id %}">
 	<meta property="og:site_name" content="Крафт fest'">
