@@ -1,6 +1,7 @@
 {% load static %}
 {% load event_extras %}
 {% for category in categories %}
+  {% if products|in_category:category %}
   <div class="col-md-12 col-sm-9 col-xs-12 category" data-category='{{ category.id }}'
        id="category">
     <h2>{{ category.name }}</h2>
@@ -48,19 +49,19 @@
       </div>
       {% endfor %}
     </div>
-
+   {% endif %}
 {% endfor %}
 
 
 {% if products.has_next %}
-          <div class="more-btn">
-            <a href=""
-               class="btn btn-common wow fadeInUp load-more-product"
-               data-pages="{{ paginator.num_pages}}"
-               data-page="{{ page_obj.number }}"
-               data-wow-delay="0.3s"
-               id="load-more-product" >
-                Завантажити ще
-            </a>
-          </div>
-          {% endif %}
+<div class="more-btn">
+<a href=""
+   class="btn btn-common wow fadeInUp load-more-product"
+   data-pages="{{ paginator.num_pages}}"
+   data-page="{{ page_obj.number }}"
+   data-wow-delay="0.3s"
+   id="load-more-product" >
+    Завантажити ще
+</a>
+</div>
+{% endif %}
